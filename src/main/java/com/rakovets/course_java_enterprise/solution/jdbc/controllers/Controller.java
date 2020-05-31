@@ -6,7 +6,6 @@ import java.util.Scanner;
 
 public class Controller {
 	Scanner scanner = new Scanner(System.in);
-	public int command;
 
 	public void musicStoreRunController() {
 		System.out.println("\nDB \"MUSIC STORE\"");
@@ -14,7 +13,7 @@ public class Controller {
 		while (runMain) {
 			new Print().printActionOptionsUI();
 			System.out.print("> ");
-			command = scanner.nextInt();
+			int command = scanner.nextInt();
 			switch (command) {
 				case 1:
 					System.out.println("All artists: ");
@@ -24,6 +23,11 @@ public class Controller {
 				System.out.println("All songs: ");
 				new RequestToDB().returnAllSongs();
 				break;
+				case 3:
+					System.out.print("Enter artist Id : ");
+					int id = scanner.nextInt();
+					new RequestToDB().returnArtistById(id);
+					break;
 				default:
 					System.out.println("COMMAND NUMBER NOT EXIST");
 			}
