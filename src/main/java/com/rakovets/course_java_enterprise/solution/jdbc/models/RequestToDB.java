@@ -92,4 +92,27 @@ public class RequestToDB {
 		}
 	}
 
+	public void createNewArtist(String newArtist) {
+		try {
+			Class.forName(DATASOURCE_DRIVER);
+		} catch (ClassNotFoundException e) {
+			System.out.println("Didn't found JDBC Driver: " + DATASOURCE_DRIVER);
+		}
+		try(Connection connection = DriverManager.getConnection(DATASOURCE_URL, DATASOURCE_USER, DATASOURCE_PASSWORD)) {
+			PreparedStatement preparedStatement = connection.prepareStatement(
+					"INSERT INTO artist (name) VALUES (?)");
+			preparedStatement.setString(1, newArtist);
+			preparedStatement.executeUpdate();
+			System.out.println("Artist added");
+		} catch (SQLException e) {
+			System.out.println("SQLException: " + e);
+		}
+	}
+
 }
+// PrepareStatement
+//			PreparedStatement preparedStatement = connection.prepareStatement(
+//					"INSERT INTO artist (name) VALUES (?)");
+//			preparedStatement.setString(1, "Bon");
+//			int count = preparedStatement.executeUpdate();
+//			System.out.printf("SQL Query apply for %d items", count);

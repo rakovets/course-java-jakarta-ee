@@ -5,7 +5,8 @@ import main.java.com.rakovets.course_java_enterprise.solution.jdbc.view.Print;
 import java.util.Scanner;
 
 public class Controller {
-	Scanner scanner = new Scanner(System.in);
+	Scanner scannerInt = new Scanner(System.in);
+	Scanner scannerLine = new Scanner(System.in);
 
 	public void musicStoreRunController() {
 		System.out.println("\nDB \"MUSIC STORE\"");
@@ -13,7 +14,7 @@ public class Controller {
 		while (runMain) {
 			new Print().printActionOptionsUI();
 			System.out.print("> ");
-			int command = scanner.nextInt();
+			int command = scannerInt.nextInt();
 			switch (command) {
 				case 1:
 					System.out.println("All artists: ");
@@ -25,13 +26,18 @@ public class Controller {
 					break;
 				case 3:
 					System.out.print("Enter artist Id : ");
-					int idArtist = scanner.nextInt();
+					int idArtist = scannerInt.nextInt();
 					new RequestToDB().returnArtistById(idArtist);
 					break;
 				case 4:
 					System.out.print("Enter song Id : ");
-					int idSong = scanner.nextInt();
+					int idSong = scannerInt.nextInt();
 					new RequestToDB().returnSongById(idSong);
+					break;
+				case 5:
+					System.out.print("Enter new artist: ");
+					String newArtist = scannerLine.nextLine();
+					new RequestToDB().createNewArtist(newArtist);
 					break;
 				default:
 					System.out.println("COMMAND NUMBER NOT EXIST");
