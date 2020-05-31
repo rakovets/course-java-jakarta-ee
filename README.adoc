@@ -2,7 +2,7 @@
 
 == Code of Conduct
 
-This project is governed by the link:.github/CODE_OF_CONDUCT.md[Code of Conduct].
+This project is governed by the link:.github/CODE_OF_CONDUCT.adoc[Code of Conduct].
 By participating, you are expected to uphold this code of conduct.
 
 == License
