@@ -35,18 +35,28 @@ public class Controller {
 					new RequestToDB().returnSongById(idSong);
 					break;
 				case 5:
-					System.out.print("Enter new artist: ");
+					System.out.print("Enter new name artist: ");
 					String newArtist = scannerLine.nextLine();
 					new RequestToDB().createNewArtist(newArtist);
 					break;
 				case 6:
-					System.out.print("Enter new song: ");
+					System.out.print("Enter new title song: ");
 					String newSong = scannerLine.nextLine();
 					System.out.print("Enter length song: ");
 					int length = scannerInt.nextInt();
 					System.out.print("Enter artist Id: ");
 					int idArtistForSong = scannerInt.nextInt();
 					new RequestToDB().createNewSong(newSong, length, idArtistForSong);
+					break;
+				case 7:
+					System.out.print("Enter artist Id : ");
+					int idArt = scannerInt.nextInt();
+					new RequestToDB().returnArtistById(idArt);
+					System.out.println("All songs: ");
+					new RequestToDB().returnAllSongsByIdArtist(idArt);
+					break;
+				case 8:
+					runMain = false;
 					break;
 				default:
 					System.out.println("COMMAND NUMBER NOT EXIST");
