@@ -35,7 +35,9 @@ public class RequestToDB {
 			Statement statement = connection.createStatement();
 			ResultSet resultSet = statement.executeQuery("SELECT * FROM song ORDER BY song_id");
 			while (resultSet.next()) {
-				System.out.printf("%d.\t\"%s\"\n", resultSet.getInt("song_id"), resultSet.getString("title"));
+				System.out.printf("%d.\t\"%-30s\"length - \"%d\"\t\tartist_id - \"%d\"\n",
+						resultSet.getInt("song_id"), resultSet.getString("title"), resultSet.getInt("length"),
+						resultSet.getInt("artist_id"));
 			}
 		} catch (SQLException e) {
 			System.out.println("SQLException: " + e);
@@ -79,8 +81,9 @@ public class RequestToDB {
 			ResultSet resultSet = statement.executeQuery("SELECT * FROM song");
 			while (resultSet.next()) {
 				if (resultSet.getInt("song_id") == id) {
-					System.out.printf("id %d  -  \"%s\"\n", resultSet.getInt("song_id"),
-							resultSet.getString("title"));
+					System.out.printf("%d.\t\"%s\"\tlength - \"%d\"\tartist_id - \"%d\"\n", resultSet.getInt("song_id"),
+							resultSet.getString("title"), resultSet.getInt("length"),
+							resultSet.getInt("artist_id"));
 					idNoExist = false;
 				}
 			}
@@ -109,10 +112,22 @@ public class RequestToDB {
 		}
 	}
 
+	public void createNewSong(String newArtist, int length, int idArtistForSong) {
+		try {
+			Class.forName(DATASOURCE_DRIVER);
+		} catch (ClassNotFoundException e) {
+			System.out.println("Didn't found JDBC Driver: " + DATASOURCE_DRIVER);
+		}
+		try(Connection connection = DriverManager.getConnection(DATASOURCE_URL, DATASOURCE_USER, DATASOURCE_PASSWORD)) {
+			PreparedStatement preparedStatement = connection.prepareStatement(
+					"INSERT INTO song (title, length, artist_id) VALUES (?, ?, ?)");
+			preparedStatement.setString(1, newArtist);
+			preparedStatement.setInt(2, length);
+			preparedStatement.setInt(3, idArtistForSong);
+			preparedStatement.executeUpdate();
+			System.out.println("Song added");
+		} catch (SQLException e) {
+			System.out.println("SQLException: " + e);
+		}
+	}
 }
-// PrepareStatement
-//			PreparedStatement preparedStatement = connection.prepareStatement(
-//					"INSERT INTO artist (name) VALUES (?)");
-//			preparedStatement.setString(1, "Bon");
-//			int count = preparedStatement.executeUpdate();
-//			System.out.printf("SQL Query apply for %d items", count);

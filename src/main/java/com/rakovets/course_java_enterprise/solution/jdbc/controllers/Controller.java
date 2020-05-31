@@ -39,6 +39,15 @@ public class Controller {
 					String newArtist = scannerLine.nextLine();
 					new RequestToDB().createNewArtist(newArtist);
 					break;
+				case 6:
+					System.out.print("Enter new song: ");
+					String newSong = scannerLine.nextLine();
+					System.out.print("Enter length song: ");
+					int length = scannerInt.nextInt();
+					System.out.print("Enter artist Id: ");
+					int idArtistForSong = scannerInt.nextInt();
+					new RequestToDB().createNewSong(newSong, length, idArtistForSong);
+					break;
 				default:
 					System.out.println("COMMAND NUMBER NOT EXIST");
 			}
