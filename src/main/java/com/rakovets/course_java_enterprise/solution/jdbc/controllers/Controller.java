@@ -20,6 +20,10 @@ public class Controller {
 					System.out.println("All artists: ");
 					new RequestToDB().returnAllArtists();
 					break;
+				case 2:
+				System.out.println("All songs: ");
+				new RequestToDB().returnAllSongs();
+				break;
 				default:
 					System.out.println("COMMAND NUMBER NOT EXIST");
 			}

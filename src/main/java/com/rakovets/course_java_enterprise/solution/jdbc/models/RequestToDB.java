@@ -24,4 +24,21 @@ public class RequestToDB {
 			System.out.println("SQLException: " + e);
 		}
 	}
+
+	public void returnAllSongs() {
+		try {
+			Class.forName(DATASOURCE_DRIVER);
+		} catch (ClassNotFoundException e) {
+			System.out.println("Didn't found JDBC Driver: " + DATASOURCE_DRIVER);
+		}
+		try(Connection connection = DriverManager.getConnection(DATASOURCE_URL, DATASOURCE_USER, DATASOURCE_PASSWORD)) {
+			Statement statement = connection.createStatement();
+			ResultSet resultSet = statement.executeQuery("SELECT * FROM song ORDER BY song_id");
+			while (resultSet.next()) {
+				System.out.printf("%d.\t\"%s\"\n", resultSet.getInt("song_id"), resultSet.getString("title"));
+			}
+		} catch (SQLException e) {
+			System.out.println("SQLException: " + e);
+		}
+	}
 }
