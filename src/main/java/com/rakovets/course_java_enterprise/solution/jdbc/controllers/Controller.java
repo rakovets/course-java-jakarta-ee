@@ -20,13 +20,18 @@ public class Controller {
 					new RequestToDB().returnAllArtists();
 					break;
 				case 2:
-				System.out.println("All songs: ");
-				new RequestToDB().returnAllSongs();
-				break;
+					System.out.println("All songs: ");
+					new RequestToDB().returnAllSongs();
+					break;
 				case 3:
 					System.out.print("Enter artist Id : ");
-					int id = scanner.nextInt();
-					new RequestToDB().returnArtistById(id);
+					int idArtist = scanner.nextInt();
+					new RequestToDB().returnArtistById(idArtist);
+					break;
+				case 4:
+					System.out.print("Enter song Id : ");
+					int idSong = scanner.nextInt();
+					new RequestToDB().returnSongById(idSong);
 					break;
 				default:
 					System.out.println("COMMAND NUMBER NOT EXIST");
