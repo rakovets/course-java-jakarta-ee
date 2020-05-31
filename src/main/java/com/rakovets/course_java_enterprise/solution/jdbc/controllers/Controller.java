@@ -5,8 +5,8 @@ import main.java.com.rakovets.course_java_enterprise.solution.jdbc.view.Print;
 import java.util.Scanner;
 
 public class Controller {
-	Scanner scannerInt = new Scanner(System.in);
-	Scanner scannerLine = new Scanner(System.in);
+	private Scanner scannerInt = new Scanner(System.in);
+	private Scanner scannerLine = new Scanner(System.in);
 
 	public void musicStoreRunController() {
 		System.out.println("\nDB \"MUSIC STORE\"");
