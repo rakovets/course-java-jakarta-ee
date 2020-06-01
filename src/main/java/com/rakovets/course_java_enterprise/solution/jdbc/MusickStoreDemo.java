@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
-public class SongAndArtistDemo {
+public class MusickStoreDemo {
 
     Scanner scanner = new Scanner(System.in);
 

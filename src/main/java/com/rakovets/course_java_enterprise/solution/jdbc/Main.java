@@ -11,7 +11,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        SongAndArtistDemo songAndArtistDemo = new SongAndArtistDemo();
+        MusickStoreDemo songAndArtistDemo = new MusickStoreDemo();
         songAndArtistDemo.MusicStoreMinu();
     }
 
