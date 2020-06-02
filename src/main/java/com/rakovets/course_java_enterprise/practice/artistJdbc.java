@@ -1,6 +1,7 @@
 package main.java.com.rakovets.course_java_enterprise.practice;
 
 import java.sql.*;
+import java.util.PropertyResourceBundle;
 import java.util.Scanner;
 
 class artistJdbc {
@@ -28,6 +29,10 @@ class artistJdbc {
                     getArtists(statement);
                 } else if (answer.equals("2")) {
                     getSongs(statement);
+                } else if (answer.equals("3")) {
+                    getArtistById(connection);
+                } else if (answer.equals("4")) {
+                    getSongById(connection);
                 }
             }
 
@@ -37,7 +42,8 @@ class artistJdbc {
     }
 
     public static void menu() {
-        System.out.println("\nChoose number:\n1. Get all artists\n2. Get all songs\n");
+        System.out.println("\nChoose number:\n1. get all artists\n2. get all songs\n3. get Artist By Id\n" +
+                "4. get song by id\n");
     }
 
     public static void getArtists(Statement statement) throws SQLException {
@@ -51,6 +57,36 @@ class artistJdbc {
     public static void getSongs(Statement statement) throws SQLException {
         ResultSet rs = statement.executeQuery("SELECT * FROM song");
         System.out.println("Songs:\nid, title, length, artist_id\n" +
+                "-----------------------------------");
+        while (rs.next()) {
+            System.out.println(rs.getInt("id") + ", " + rs.getString("title") +
+                    ", " + rs.getInt("length") + ", " + rs.getInt("artist_id"));
+        }
+    }
+
+    public static void getArtistById(Connection connection) throws SQLException {
+        System.out.println("Enter id of artist:");
+        Scanner scanner = new Scanner(System.in);
+        int id = scanner.nextInt();
+        String sql = "SELECT * FROM artist WHERE id = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setInt(1, id);
+        ResultSet rs = preparedStatement.executeQuery();
+        System.out.println("\nArtist:\nid" + "\t" +"name");
+        while (rs.next()) {
+            System.out.println(rs.getInt(1) + "\t" + rs.getString(2));
+        }
+    }
+
+    public static void getSongById(Connection connection) throws SQLException {
+        System.out.println("Enter id of song:");
+        Scanner scanner = new Scanner(System.in);
+        int id = scanner.nextInt();
+        String sql = "SELECT * FROM song WHERE id = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setInt(1, id);
+        ResultSet rs = preparedStatement.executeQuery();
+        System.out.println("Song:\nid, title, length, artist_id\n" +
                 "-----------------------------------");
         while (rs.next()) {
             System.out.println(rs.getInt("id") + ", " + rs.getString("title") +
