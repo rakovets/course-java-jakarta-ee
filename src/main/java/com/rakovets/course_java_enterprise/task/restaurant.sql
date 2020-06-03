@@ -21,12 +21,12 @@ CREATE TABLE dish (
     PRIMARY KEY(id)
 );
 
-CREATE TABLE restaurant_dish (
+CREATE TABLE restaurant_review (
     restaurant_id INT,
-    dish_id INT,
-    PRIMARY KEY (restaurant_id, dish_id),
+    review_id INT,
+    PRIMARY KEY (restaurant_id, review_id),
     FOREIGN KEY (restaurant_id) REFERENCES restaurant(id),
-    FOREIGN KEY (dish_id) REFERENCES dish(id)
+    FOREIGN KEY (review_id) REFERENCES review(id)
 );
 
 CREATE TABLE restaurant_dish (
