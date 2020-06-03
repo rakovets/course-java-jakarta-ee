@@ -4,7 +4,7 @@ import java.sql.*;
 import java.util.PropertyResourceBundle;
 import java.util.Scanner;
 
-class artistJdbc {
+class ArtistJdbc {
     private static final String DATASOURCE_DRIVER = "com.mysql.jdbc.Driver";
     private static final String DATASOURCE_URL = "jdbc:mysql://localhost/music_store";
     private static final String DATASOURCE_USER = "root";
@@ -13,13 +13,12 @@ class artistJdbc {
     public static void main(String[] args) {
         Boolean menuWork = true;
         Scanner scanner = new Scanner(System.in);
-        try{
+        try {
             Class.forName(DATASOURCE_DRIVER);
-        }
-        catch(ClassNotFoundException ex){
+        } catch (ClassNotFoundException ex) {
             System.out.println("Don't find JDBC driver: " + ex);
         }
-        try(Connection connection = DriverManager.getConnection(DATASOURCE_URL, DATASOURCE_USER, DATASOURCE_PASSWORD)) {
+        try (Connection connection = DriverManager.getConnection(DATASOURCE_URL, DATASOURCE_USER, DATASOURCE_PASSWORD)) {
             Statement statement = connection.createStatement();
 
             while (menuWork) {
@@ -57,7 +56,7 @@ class artistJdbc {
 
     public static void getArtists(Statement statement) throws SQLException {
         ResultSet rs = statement.executeQuery("SELECT * FROM artist");
-        System.out.println("Artists:\nid" + "\t" +"name");
+        System.out.println("Artists:\nid" + "\t" + "name");
         while (rs.next()) {
             System.out.println(rs.getInt(1) + "\t" + rs.getString(2));
         }
@@ -81,7 +80,7 @@ class artistJdbc {
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setInt(1, id);
         ResultSet rs = preparedStatement.executeQuery();
-        System.out.println("\nArtist:\nid" + "\t" +"name");
+        System.out.println("\nArtist:\nid" + "\t" + "name");
         while (rs.next()) {
             System.out.println(rs.getInt(1) + "\t" + rs.getString(2));
         }
