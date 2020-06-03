@@ -27,7 +27,7 @@ public class RestauranDaoImpl implements RestaurantDao<Restauran> {
     }
 
     @Override
-    public Restauran add(Restauran restauran) throws SQLException {
+    public Restauran add(Restauran restaurant) throws SQLException {
         Connection connection = ConnectionManeger.createConnection();
         PreparedStatement preparedStatement =
                 connection.prepareStatement("INSERT INTO restaurant (name) VALUE (?)", Statement.RETURN_GENERATED_KEYS);
@@ -38,9 +38,9 @@ public class RestauranDaoImpl implements RestaurantDao<Restauran> {
         ResultSet resultSet = preparedStatement.getGeneratedKeys();
         System.out.println("Exrcute row: " + count);
         if (resultSet.next()){
-            restauran.setId(resultSet.getLong(1));
+            restaurant.setId(resultSet.getLong(1));
         }
-            return null;
+            return restaurant;
     }
 
     @Override
