@@ -33,6 +33,10 @@ class artistJdbc {
                     getArtistById(connection);
                 } else if (answer.equals("4")) {
                     getSongById(connection);
+                } else if (answer.equals("5")) {
+                    createArtist(connection);
+                } else if (answer.equals("6")) {
+                    createSong(connection);
                 }
             }
 
@@ -43,7 +47,7 @@ class artistJdbc {
 
     public static void menu() {
         System.out.println("\nChoose number:\n1. get all artists\n2. get all songs\n3. get Artist By Id\n" +
-                "4. get song by id\n");
+                "4. get song by id\n5. add new artist\n6. add new song\n");
     }
 
     public static void getArtists(Statement statement) throws SQLException {
@@ -92,5 +96,38 @@ class artistJdbc {
             System.out.println(rs.getInt("id") + ", " + rs.getString("title") +
                     ", " + rs.getInt("length") + ", " + rs.getInt("artist_id"));
         }
+    }
+
+    public static void createArtist(Connection connection) throws SQLException {
+        System.out.println("Enter name of artist:");
+        Scanner scanner = new Scanner(System.in);
+        String name = scanner.nextLine();
+        String sql = "INSERT INTO artist(name) VALUES (?)";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setString(1, name);
+
+        int rows = preparedStatement.executeUpdate();
+        System.out.println("Rows added: " + rows);
+    }
+
+    public static void createSong(Connection connection) throws SQLException {
+        System.out.println("Enter title of song:");
+        Scanner scanner = new Scanner(System.in);
+        String title = scanner.nextLine();
+
+        System.out.println("Enter length of song:");
+        String length = scanner.nextLine();
+
+        System.out.println("Enter artist ID of song:");
+        String artistId = scanner.nextLine();
+
+        String sql = "INSERT INTO song(title, length, artist_id) VALUES (?, ?, ?)";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setString(1, title);
+        preparedStatement.setString(2, length);
+        preparedStatement.setString(3, artistId);
+
+        int rows = preparedStatement.executeUpdate();
+        System.out.println("Rows added: " + rows);
     }
 }
