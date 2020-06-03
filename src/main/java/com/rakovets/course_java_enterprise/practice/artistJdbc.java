@@ -37,6 +37,10 @@ class artistJdbc {
                     createArtist(connection);
                 } else if (answer.equals("6")) {
                     createSong(connection);
+                } else if (answer.equals("7")) {
+                    getSongsByIdOfArtist(connection);
+                } else if (answer.equals("8")) {
+                    break;
                 }
             }
 
@@ -46,8 +50,9 @@ class artistJdbc {
     }
 
     public static void menu() {
-        System.out.println("\nChoose number:\n1. get all artists\n2. get all songs\n3. get Artist By Id\n" +
-                "4. get song by id\n5. add new artist\n6. add new song\n");
+        System.out.println("\nChoose number:\n1. get all artists\n2. get all songs\n3. get artist by ID\n" +
+                "4. get song by ID\n5. add new artist\n6. add new song\n7. get songs by ID of artist\n" +
+                "8. exit\n");
     }
 
     public static void getArtists(Statement statement) throws SQLException {
@@ -129,5 +134,23 @@ class artistJdbc {
 
         int rows = preparedStatement.executeUpdate();
         System.out.println("Rows added: " + rows);
+    }
+
+    public static void getSongsByIdOfArtist(Connection connection) throws SQLException {
+        System.out.println("Enter id of artist:");
+        Scanner scanner = new Scanner(System.in);
+        int idOfArtist = scanner.nextInt();
+
+        String sql = "SELECT * FROM song WHERE artist_id = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setInt(1, idOfArtist);
+
+        ResultSet rs = preparedStatement.executeQuery();
+        System.out.println("Song:\nid, title, length, artist_id\n" +
+                "-----------------------------------");
+        while (rs.next()) {
+            System.out.println(rs.getInt("id") + ", " + rs.getString("title") +
+                    ", " + rs.getInt("length") + ", " + rs.getInt("artist_id"));
+        }
     }
 }
