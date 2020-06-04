@@ -5,7 +5,7 @@ public class Review {
     private String content;
     private Restauran restauran;
 
-    public Review(long id, String content, Restauran restauran) {
+    public Review(String content) {
         this.id = id;
         this.content = content;
         this.restauran = restauran;

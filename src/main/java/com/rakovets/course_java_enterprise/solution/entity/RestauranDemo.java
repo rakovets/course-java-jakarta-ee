@@ -2,6 +2,7 @@ package main.java.com.rakovets.course_java_enterprise.solution.entity;
 
 import main.java.com.rakovets.course_java_enterprise.solution.dao.impl.DishDaoImpl;
 import main.java.com.rakovets.course_java_enterprise.solution.dao.impl.RestauranDaoImpl;
+import main.java.com.rakovets.course_java_enterprise.solution.dao.impl.ReviewDaoImpl;
 
 import java.sql.SQLException;
 import java.time.LocalDateTime;
@@ -20,11 +21,14 @@ public class RestauranDemo {
         System.out.println("(Добро пожаловать в наш ресторан!!!!)");
         boolean runMain = true;
         while (runMain) {
-            System.out.println("\n1.--Добавить рестаран:-- \t" +
-                    "\n2.--Посмотреть все ресторанны:-- \t" +
-                    "\n3.--Добавить блюдо:-- \t" +
-                    "\n4.--Посмотреть все блюда:-- \t" +
-                    "\n5.--Выход:--  \t ");
+            System.out.println("\n\tПожалуста выбирете что хотите сделать: " +
+                    "\n\t1.--Добавить рестаран:-- \n\t" +
+                    "\n\t2.--Посмотреть все ресторанны:-- \n\t" +
+                    "\n\t3.--Добавить блюдо:-- \n\t" +
+                    "\n\t4.--Посмотреть все блюда:-- \n\t" +
+                    "\n\t5.--Добавить отзыв:-- \n\t" +
+                    "\n\t6.--Посмотреть все отзывы:-- \n\t" +
+                    "\n\t7.--Выход:-- \n\t ");
             int scanmain = scanner.nextInt();
             switch (scanmain) {
                 case 1:
@@ -76,8 +80,30 @@ public class RestauranDemo {
                         e.printStackTrace();
                     }
                     break;
-
                 case 5:
+                    String nameContent = scanner.next();
+                    ReviewDaoImpl reviewDao = ReviewDaoImpl.getInstance();
+                    reviewDao = ReviewDaoImpl.getInstance();
+                    try {
+                        Review addReview = reviewDao.add(new Review(nameContent));
+                    } catch (SQLException e) {
+                        System.out.println("SQLException" + e);
+                        e.printStackTrace();
+                    }
+                    break;
+
+                case 6:
+                    System.out.println("Все отзывы преставленны ниже: ");
+                    ReviewDaoImpl reviewDao1 = new ReviewDaoImpl();
+                    try {
+                        reviewDao1.show(new Review(reviewDao1.toString()));
+                    } catch (SQLException e) {
+                        System.out.println("SQLException" + e);
+                        e.printStackTrace();
+                    }
+                    break;
+
+                case 7:
                     runMain = false;
                     System.out.println("Выходите из ресторанна!!");
                     break;
