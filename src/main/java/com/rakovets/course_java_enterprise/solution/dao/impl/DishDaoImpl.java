@@ -1,23 +1,23 @@
 package main.java.com.rakovets.course_java_enterprise.solution.dao.impl;
 
 import main.java.com.rakovets.course_java_enterprise.solution.connection.ConnectionManeger;
-import main.java.com.rakovets.course_java_enterprise.solution.entity.Restauran;
+import main.java.com.rakovets.course_java_enterprise.solution.entity.Dish;
 
 import java.sql.*;
 
-public class RestauranDaoImpl implements RestaurantDao<Restauran> {
+public class DishDaoImpl implements DishDao<Dish> {
 
     Connection connection = new ConnectionManeger().createConnection();
 
     private static final Object LOCK = new Object();
 
-    private static RestauranDaoImpl INSTANCE = null;
+    private static DishDaoImpl INSTANCE = null;
 
-    public static RestauranDaoImpl getInstance() {
+    public static DishDaoImpl getInstance() {
         if (INSTANCE == null) {
             synchronized (LOCK) {
                 if (INSTANCE == null) {
-                    INSTANCE = new RestauranDaoImpl();
+                    INSTANCE = new DishDaoImpl();
                 }
             }
         }
@@ -25,27 +25,27 @@ public class RestauranDaoImpl implements RestaurantDao<Restauran> {
     }
 
     @Override
-    public Restauran add(Restauran restaurant) throws SQLException {
+    public Dish add(Dish dish) throws SQLException {
         Connection connection = ConnectionManeger.createConnection();
         PreparedStatement preparedStatement =
-                connection.prepareStatement("INSERT INTO restaurant (name) VALUE (?)", Statement.RETURN_GENERATED_KEYS);
-        preparedStatement.setString(1, restaurant.getName());
+                connection.prepareStatement("INSERT INTO dish (name) VALUE (?)", Statement.RETURN_GENERATED_KEYS);
+        preparedStatement.setString(1, dish.getName());
         preparedStatement.executeUpdate();
         ResultSet resultSet = preparedStatement.getGeneratedKeys();
         if (resultSet.next()) {
-            restaurant.setId(resultSet.getLong(1));
+            dish.setId(resultSet.getLong(1));
         }
-        return restaurant;
+        return dish;
     }
 
     @Override
-    public Restauran show(Restauran restaurant) throws SQLException {
+    public Dish show(Dish dish) throws SQLException {
         Statement statement = connection.createStatement();
-        ResultSet resultSet = statement.executeQuery("SELECT * FROM restaurant");
+        ResultSet resultSet = statement.executeQuery("SELECT * FROM dish");
         while (resultSet.next()) {
             System.out.printf("{\n\t\"id\":%d,\n\t\"name\":\"%s\n\t\"",
                     resultSet.getInt("id"), resultSet.getString("name"));
         }
-        return restaurant;
+        return dish;
     }
 }

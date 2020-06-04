@@ -1,5 +1,6 @@
 package main.java.com.rakovets.course_java_enterprise.solution.entity;
 
+import main.java.com.rakovets.course_java_enterprise.solution.dao.impl.DishDaoImpl;
 import main.java.com.rakovets.course_java_enterprise.solution.dao.impl.RestauranDaoImpl;
 
 import java.sql.SQLException;
@@ -21,11 +22,13 @@ public class RestauranDemo {
         while (runMain) {
             System.out.println("\n1.--Добавить рестаран:-- \t" +
                     "\n2.--Посмотреть все ресторанны:-- \t" +
-                    "\n3.--Выход:--  \t ");
+                    "\n3.--Добавить блюдо:-- \t" +
+                    "\n4.--Посмотреть все блюда:-- \t" +
+                    "\n5.--Выход:--  \t ");
             int scanmain = scanner.nextInt();
             switch (scanmain) {
                 case 1:
-                    System.out.println("Введите ресторвн :");
+                    System.out.println("Введите ресторан:");
                     String nameRestauran = scanner.next();
                     RestauranDaoImpl restauranDao = RestauranDaoImpl.getInstance();
                     restauranDao = RestauranDaoImpl.getInstance();
@@ -37,10 +40,10 @@ public class RestauranDemo {
                         e.printStackTrace();
                     }
                     break;
+
                 case 2:
                     System.out.println("Все ресторанны преставленны ниже: ");
-                    RestauranDaoImpl restauranDao1 = RestauranDaoImpl.getInstance();
-                    restauranDao1 = RestauranDaoImpl.getInstance();
+                    RestauranDaoImpl restauranDao1 = new RestauranDaoImpl();
                     try {
                         restauranDao1.show(new Restauran(restauranDao1.toString()));
                     } catch (SQLException e) {
@@ -48,7 +51,33 @@ public class RestauranDemo {
                         e.printStackTrace();
                     }
                     break;
+
                 case 3:
+                    System.out.println("Введите блюдо:");
+                    String nameDish = scanner.next();
+                    DishDaoImpl dishDao = DishDaoImpl.getInstance();
+                    dishDao = DishDaoImpl.getInstance();
+                    try {
+                        Dish addDissh = dishDao.add(new Dish(nameDish));
+                        System.out.println("Вы добавилли блюдо: " + addDissh.getName());
+                    } catch (SQLException e) {
+                        System.out.println("SQLException" + e);
+                        e.printStackTrace();
+                    }
+                    break;
+
+                case 4:
+                    System.out.println("Все блюда преставленны ниже: ");
+                    DishDaoImpl dishDao1 = new DishDaoImpl();
+                    try {
+                        dishDao1.show(new Dish(dishDao1.toString()));
+                    } catch (SQLException e) {
+                        System.out.println("SQLException" + e);
+                        e.printStackTrace();
+                    }
+                    break;
+
+                case 5:
                     runMain = false;
                     System.out.println("Выходите из ресторанна!!");
                     break;
