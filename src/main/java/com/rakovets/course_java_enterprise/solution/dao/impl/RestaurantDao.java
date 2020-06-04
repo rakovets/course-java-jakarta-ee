@@ -6,5 +6,4 @@ import java.sql.SQLException;
 import java.util.List;
 
 public interface RestaurantDao <R> extends Dao<Restauran> {
-    List<Restauran> findall () throws SQLException;
 }

@@ -4,12 +4,8 @@ import main.java.com.rakovets.course_java_enterprise.solution.connection.Connect
 import main.java.com.rakovets.course_java_enterprise.solution.entity.Restauran;
 
 import java.sql.*;
-import java.util.List;
-import java.util.Scanner;
 
 public class RestauranDaoImpl implements RestaurantDao<Restauran> {
-
-    Scanner scanner = new Scanner(System.in);
 
     private static final Object LOCK = new Object();
 
@@ -31,32 +27,26 @@ public class RestauranDaoImpl implements RestaurantDao<Restauran> {
         Connection connection = ConnectionManeger.createConnection();
         PreparedStatement preparedStatement =
                 connection.prepareStatement("INSERT INTO restaurant (name) VALUE (?)", Statement.RETURN_GENERATED_KEYS);
-        String name = askRestaurantName();
-        preparedStatement.setString(1, name);
-        long count = preparedStatement.executeUpdate();
-        System.out.println("Execute row: " + count);
+        preparedStatement.setString(1, restaurant.getName());
+        preparedStatement.executeUpdate();
         ResultSet resultSet = preparedStatement.getGeneratedKeys();
-        System.out.println("Exrcute row: " + count);
-        if (resultSet.next()){
+        if (resultSet.next()) {
             restaurant.setId(resultSet.getLong(1));
         }
-            return restaurant;
+        return restaurant;
     }
 
     @Override
-    public Restauran show(Restauran restauran) throws SQLException {
-        return null;
+    public Restauran show(Restauran restaurant) throws SQLException {
+        Connection connection = ConnectionManeger.createConnection();
+        PreparedStatement preparedStatement =
+                connection.prepareStatement("SELECT * FROM restaurant");
+        ResultSet resultSet = preparedStatement.executeQuery();
+       if(resultSet.next()){
+           restaurant.getId(resultSet.getLong(1));
+           System.out.printf("{\n\t\"id\":%d,\n\t\"name\":\"%s\n\t\"",
+                   resultSet.getInt("restaurant_id"), resultSet.getString("name"));
+       }
+        return restaurant;
     }
-
-    @Override
-    public List<Restauran> findall() throws SQLException {
-        return null;
-    }
-
-    private String askRestaurantName() {
-        System.out.println("What restauran do you want to add: ");
-        String name = scanner.nextLine();
-        return name;
-    }
-
 }

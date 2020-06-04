@@ -11,9 +11,6 @@ public class ConnectionManeger {
     public static void main(String[] args) {
         ConnectionManeger connectionManeger = new ConnectionManeger();
         connectionManeger.createConnection();
-
-        RestauranDemo restauranDemo = new RestauranDemo();
-        restauranDemo.Meniu();
     }
 
     private static final String DATASOURSE_DRIVER = "jdbc:mysql://localhost:3306/restaurant?useUnicode=true&serverTimezone=UTC";

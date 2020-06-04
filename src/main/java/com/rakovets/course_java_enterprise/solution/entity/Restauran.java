@@ -15,7 +15,7 @@ public class Restauran {
         this.name = name;
     }
 
-    public long getId() {
+    public long getId(long aLong) {
         return id;
     }
 

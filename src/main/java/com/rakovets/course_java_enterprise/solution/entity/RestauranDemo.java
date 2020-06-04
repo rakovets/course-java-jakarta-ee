@@ -19,12 +19,14 @@ public class RestauranDemo {
         System.out.println("(Добро пожаловать в наш ресторан!!!!)");
         boolean runMain = true;
         while (runMain) {
-            System.out.println("\n1.Добавить рестаран \t" +
-                    "2.Выход  \t ");
+            System.out.println("\n1.--Добавить рестаран:-- \t" +
+                    "\n2.--Посмотреть все ресторанны:-- \t" +
+                    "\n3.--Выход:--  \t ");
             int scanmain = scanner.nextInt();
             switch (scanmain) {
                 case 1:
-                    String nameRestauran = scanner.nextLine();
+                    System.out.println("Введите ресторвн :");
+                    String nameRestauran = scanner.next();
                     RestauranDaoImpl restauranDao = RestauranDaoImpl.getInstance();
                     restauranDao = RestauranDaoImpl.getInstance();
                     try {
@@ -36,6 +38,17 @@ public class RestauranDemo {
                     }
                     break;
                 case 2:
+                    System.out.println("Все ресторанны преставленны ниже: ");
+                    RestauranDaoImpl restauranDao1 = RestauranDaoImpl.getInstance();
+                    restauranDao1 = RestauranDaoImpl.getInstance();
+                    try {
+                        restauranDao1.show(new Restauran(restauranDao1.toString()));
+                    } catch (SQLException e) {
+                        System.out.println("SQLException" + e);
+                        e.printStackTrace();
+                    }
+                    break;
+                case 3:
                     runMain = false;
                     System.out.println("Выходите из ресторанна!!");
                     break;
