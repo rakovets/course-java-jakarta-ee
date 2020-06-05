@@ -1,6 +1,7 @@
 package main.java.com.rakovets.course_java_enterprise.solution.dao.impl;
 
 import main.java.com.rakovets.course_java_enterprise.solution.connection.ConnectionManeger;
+import main.java.com.rakovets.course_java_enterprise.solution.entity.Dish;
 import main.java.com.rakovets.course_java_enterprise.solution.entity.Metd;
 import main.java.com.rakovets.course_java_enterprise.solution.entity.Review;
 
@@ -53,5 +54,17 @@ public class ReviewDaoImpl implements ReviewDao<Review> {
                     resultSet.getInt("id"), resultSet.getString("content"));
         }
         return review;
+    }
+
+    @Override
+    public Review get(Integer id) throws SQLException {
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery("SELECT * FROM review WHERE id = " + id);
+        while (resultSet.next()) {
+            Review review = new Review(resultSet.getString("content"));
+            review.setId(resultSet.getInt("id"));
+            return review;
+        }
+        return null;
     }
 }

@@ -29,17 +29,18 @@ public class RestauranDemo {
                     "\n\t5.--Добавить отзыв:-- \n\t" +
                     "\n\t6.--Посмотреть все отзывы:-- \n\t" +
                     "\n\t7.--Добавить блюдо в ресторан:-- \n\t" +
-                    "\n\t8.--Выход:-- \n\t ");
+                    "\n\t8.--Добавить отзыв в ресторан и посмотреть к кокому ресторану он был добавлен:-- \n\t" +
+                    "\n\t9.--Выход:-- \n\t ");
             int scanmain = scanner.nextInt();
             switch (scanmain) {
                 case 1:
-                    System.out.println("Введите ресторан:");
+                    System.out.println("Введите ресторан который хотите добавить: ");
                     String nameRestauran = scanner.next();
                     RestauranDaoImpl restauranDao = RestauranDaoImpl.getInstance();
                     restauranDao = RestauranDaoImpl.getInstance();
                     try {
                         Restauran addResatauran = restauranDao.add(new Restauran(nameRestauran));
-                        System.out.println("Вы добавилли ресторан: " + addResatauran.getName());
+                        System.out.println("Вы успешно добавилли ресторан под назвонием: " + addResatauran.getName());
                     } catch (SQLException e) {
                         System.out.println("SQLException" + e);
                         e.printStackTrace();
@@ -58,13 +59,13 @@ public class RestauranDemo {
                     break;
 
                 case 3:
-                    System.out.println("Введите блюдо:");
+                    System.out.println("Введите блюдо которое хотите добавить: ");
                     String nameDish = scanner.next();
                     DishDaoImpl dishDao = DishDaoImpl.getInstance();
                     dishDao = DishDaoImpl.getInstance();
                     try {
                         Dish addDissh = dishDao.add(new Dish(nameDish));
-                        System.out.println("Вы добавилли блюдо: " + addDissh.getName());
+                        System.out.println("Вы успешно добавилли блюдо под названием: " + addDissh.getName());
                     } catch (SQLException e) {
                         System.out.println("SQLException" + e);
                         e.printStackTrace();
@@ -113,16 +114,28 @@ public class RestauranDemo {
                     Integer idRestauran = scanner.nextInt();
                     RestauranDaoImpl restauranDao2 = new RestauranDaoImpl();
                     try {
-                        Dish dish = restauranDao2.linkDish(idRestauran ,idDish);
-                        System.out.println("Блюдо: " + dish.getName() + " Добавленно к ресторанну: " + idRestauran);
+                        Dish dish = restauranDao2.linkDish(idRestauran, idDish);
+                        System.out.println("Ваше блюдо под названием: " + dish.getName() + " : было успешно добавленно к ресторанну под id: " + idRestauran);
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
                     break;
-
                 case 8:
+                    System.out.println("Введите id отзыва: ");
+                    Integer idReview = scanner.nextInt();
+                    System.out.println("Введите id ресторана: ");
+                    Integer idRestauran1 = scanner.nextInt();
+                    RestauranDaoImpl restauranDao3 = new RestauranDaoImpl();
+                    try {
+                        Review review = restauranDao3.linkedReview(idRestauran1, idReview);
+                        System.out.println("Ваш отзыв под нозванием: " + review.getContent() + " : был успешно добавленно к ресторанну под id: " + idRestauran1);
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+
+                case 9:
                     runMain = false;
-                    System.out.println("Выходите из ресторанна!!");
+                    System.out.println("Спасибо что посетили наш ресторан , будем рады вас видеть снова у нас в гостях!!!!");
                     break;
                 default:
                     System.out.println("Не верно указан номер!!!");
