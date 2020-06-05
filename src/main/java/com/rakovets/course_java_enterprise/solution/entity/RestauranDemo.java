@@ -28,7 +28,8 @@ public class RestauranDemo {
                     "\n\t4.--Посмотреть все блюда:-- \n\t" +
                     "\n\t5.--Добавить отзыв:-- \n\t" +
                     "\n\t6.--Посмотреть все отзывы:-- \n\t" +
-                    "\n\t7.--Выход:-- \n\t ");
+                    "\n\t7.--Добавить блюдо в ресторан:-- \n\t" +
+                    "\n\t8.--Выход:-- \n\t ");
             int scanmain = scanner.nextInt();
             switch (scanmain) {
                 case 1:
@@ -80,12 +81,14 @@ public class RestauranDemo {
                         e.printStackTrace();
                     }
                     break;
+
                 case 5:
-                    String nameContent = scanner.next();
+                    Metd metd = new Metd();
+                    String askContent = metd.askContent();
                     ReviewDaoImpl reviewDao = ReviewDaoImpl.getInstance();
                     reviewDao = ReviewDaoImpl.getInstance();
                     try {
-                        Review addReview = reviewDao.add(new Review(nameContent));
+                        Review addReview = reviewDao.add(new Review(askContent));
                     } catch (SQLException e) {
                         System.out.println("SQLException" + e);
                         e.printStackTrace();
@@ -104,6 +107,20 @@ public class RestauranDemo {
                     break;
 
                 case 7:
+                    System.out.println("Введите id блюда: ");
+                    Integer idDish = scanner.nextInt();
+                    System.out.println("Введите id ресторана: ");
+                    Integer idRestauran = scanner.nextInt();
+                    RestauranDaoImpl restauranDao2 = new RestauranDaoImpl();
+                    try {
+                        Dish dish = restauranDao2.linkDish(idRestauran ,idDish);
+                        System.out.println("Блюдо: " + dish.getName() + " Добавленно к ресторанну: " + idRestauran);
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+
+                case 8:
                     runMain = false;
                     System.out.println("Выходите из ресторанна!!");
                     break;

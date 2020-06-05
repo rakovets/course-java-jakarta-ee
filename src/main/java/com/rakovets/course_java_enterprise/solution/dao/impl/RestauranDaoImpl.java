@@ -1,6 +1,7 @@
 package main.java.com.rakovets.course_java_enterprise.solution.dao.impl;
 
 import main.java.com.rakovets.course_java_enterprise.solution.connection.ConnectionManeger;
+import main.java.com.rakovets.course_java_enterprise.solution.entity.Dish;
 import main.java.com.rakovets.course_java_enterprise.solution.entity.Restauran;
 
 import java.sql.*;
@@ -36,6 +37,18 @@ public class RestauranDaoImpl implements RestaurantDao<Restauran> {
             restaurant.setId(resultSet.getLong(1));
         }
         return restaurant;
+    }
+
+    public Dish linkDish(int restauranId, int dishId) throws SQLException {
+        DishDaoImpl dishDao = DishDaoImpl.getInstance();
+        Connection connection = ConnectionManeger.createConnection();
+        PreparedStatement preparedStatement =
+                connection.prepareStatement("INSERT INTO restaurant_dish (restaurant_id , dish_id) VALUE (? , ?)", Statement.RETURN_GENERATED_KEYS);
+        preparedStatement.setInt(1, restauranId);
+        preparedStatement.setInt(2, dishId);
+        preparedStatement.executeUpdate();
+        ResultSet resultSet = preparedStatement.getGeneratedKeys();
+        return dishDao.get(dishId);
     }
 
     @Override

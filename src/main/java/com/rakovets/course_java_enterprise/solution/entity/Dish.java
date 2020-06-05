@@ -4,6 +4,7 @@ public class Dish {
     private long id;
     private String name;
 
+
     public Dish(String name) {
         this.name = name;
     }

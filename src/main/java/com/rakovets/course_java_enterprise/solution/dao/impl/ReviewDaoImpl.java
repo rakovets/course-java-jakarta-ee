@@ -31,13 +31,12 @@ public class ReviewDaoImpl implements ReviewDao<Review> {
         PreparedStatement preparedStatement =
                 connection.prepareStatement("INSERT INTO review (content , restaurant_id ) VALUE (?,?)", Statement.RETURN_GENERATED_KEYS);
         Metd metd = new Metd();
-        String askContent = metd.askContent();
-        Integer askRestauranId = metd.askRestaurantId();
-        preparedStatement.setString(1, askContent);
-        preparedStatement.setInt(2, askRestauranId);
+        Integer RestauranId = metd.askRestaurantId();
+        preparedStatement.setString(1, review.getContent());
+        preparedStatement.setInt(2, RestauranId);
         preparedStatement.executeUpdate();
         ResultSet resultSet = preparedStatement.getGeneratedKeys();
-        System.out.printf("Ваша отзыв под названием : %s", askContent + " " + "была успешно дабавлен!!");
+        System.out.printf("Ваша отзыв под названием : %s", review.getContent() + " " + "была успешно дабавлен!!");
         if (resultSet.next()) {
             review.setId(resultSet.getLong(1));
         }

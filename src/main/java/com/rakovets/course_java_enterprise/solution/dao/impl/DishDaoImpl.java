@@ -48,4 +48,16 @@ public class DishDaoImpl implements DishDao<Dish> {
         }
         return dish;
     }
+
+    @Override
+    public Dish get(Integer id) throws SQLException {
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery("SELECT * FROM dish WHERE id = " + id);
+        while (resultSet.next()) {
+            Dish dish = new Dish(resultSet.getString("name"));
+            dish.setId(resultSet.getInt("id"));
+            return dish;
+        }
+        return null;
+    }
 }
