@@ -21,33 +21,14 @@ public class ReviewDaoInst implements ReviewDao<Review> {
 				if (generatedKeys.next()) {
 					review.setId(generatedKeys.getInt(1));
 				}
+				preparedStatement.addBatch(String.format("INSERT INTO restaurant_review (restaurant_id, review_id)" +
+								" VALUE (%d, %d)", review.getRestaurantID(), review.getId()));
+				preparedStatement.executeBatch();
 				System.out.print("Added new ");
 			}
 		} catch (SQLException e) {
 			System.out.println("SQLException: " + e);
 		}
 		return review;
-	}
-
-	@Override
-	public boolean verifyExistenceRestaurantID(int restaurantID) {
-		boolean existID = false;
-		try {
-			Connection connection = ConnectionManager.getConnection();
-			try (Statement statement = connection.createStatement()) {
-				ResultSet resultSet = statement.executeQuery("SELECT * FROM restaurant");
-				while (resultSet.next()) {
-					if (resultSet.getInt("id") == restaurantID) {
-						existID = true;
-					}
-				}
-				if (!existID) {
-					System.out.println("ID NOT EXIST");
-				}
-			}
-		} catch (SQLException e) {
-			System.out.println("SQLException: " + e);
-		}
-		return existID;
 	}
 }

@@ -2,6 +2,7 @@ package main.java.com.rakovets.course_java_enterprise.solution.conrollers;
 
 import main.java.com.rakovets.course_java_enterprise.solution.dao.inst.RestaurantDaoInst;
 import main.java.com.rakovets.course_java_enterprise.solution.dao.inst.ReviewDaoInst;
+import main.java.com.rakovets.course_java_enterprise.solution.entity.Dish;
 import main.java.com.rakovets.course_java_enterprise.solution.entity.Restaurant;
 import main.java.com.rakovets.course_java_enterprise.solution.entity.Review;
 import main.java.com.rakovets.course_java_enterprise.solution.instanceObject.InstanceObject;
@@ -31,17 +32,30 @@ public class Controller {
 					break;
 				case 2:
 					reviewDao = InstanceObject.getInstanceReviewDao();
+					restaurantDao = InstanceObject.getInstanceRestaurantDao();
 					print.enterIdRestaurant();
-					int restaurantID = scannerInt.nextInt();
-					if (!reviewDao.verifyExistenceRestaurantID(restaurantID)) {
+					int restaurantIdForAddReview = scannerInt.nextInt();
+					if (!restaurantDao.verifyExistenceRestaurantID(restaurantIdForAddReview)) {
 						break;
 					}
 					print.enterContentReview();
 					String content = scannerLine.nextLine();
-					Review review = reviewDao.save(new Review(content, restaurantID));
+					Review review = reviewDao.save(new Review(content, restaurantIdForAddReview));
 					print.showReview(review);
 					break;
 				case 3:
+					restaurantDao = InstanceObject.getInstanceRestaurantDao();
+					print.enterIdRestaurant();
+					int restaurantIdForAddDish = scannerInt.nextInt();
+					if (!restaurantDao.verifyExistenceRestaurantID(restaurantIdForAddDish)) {
+						break;
+					}
+					print.enterNameDish();
+					String nameDish = scannerLine.nextLine();
+					Dish dish = restaurantDao.saveDish(new Dish(nameDish), restaurantIdForAddDish);
+					print.showDish(dish);
+					break;
+				case 4:
 					runMain = false;
 					break;
 				default:

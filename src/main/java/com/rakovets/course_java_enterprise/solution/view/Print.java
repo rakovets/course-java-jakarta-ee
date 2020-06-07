@@ -1,15 +1,21 @@
 package main.java.com.rakovets.course_java_enterprise.solution.view;
 
+import main.java.com.rakovets.course_java_enterprise.solution.entity.Dish;
 import main.java.com.rakovets.course_java_enterprise.solution.entity.Restaurant;
 import main.java.com.rakovets.course_java_enterprise.solution.entity.Review;
 
 public class Print {
 	public void actionOptionsUI() {
-		System.out.print("\nAction options:\n1. Add restaurant\n2. Add review\n3. Exit\n\nEnter number: > ");
+		System.out.print("\nAction options:\n1. Add restaurant\n2. Add review\n3. Add dish\n4. Exit\n\n" +
+				"Enter number: > ");
 	}
 
 	public void enterNameRestaurant() {
 		System.out.print("\nEnter name restaurant: > ");
+	}
+
+	public void enterNameDish() {
+		System.out.print("\nEnter name dish: > ");
 	}
 
 	public void enterContentReview() {
@@ -26,5 +32,9 @@ public class Print {
 
 	public void showReview(Review review) {
 		System.out.println(review);
+	}
+
+	public void showDish(Dish dish) {
+		System.out.println(dish);
 	}
 }
