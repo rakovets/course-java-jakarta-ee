@@ -66,6 +66,15 @@ public class Controller {
 					System.out.println(resultAdd);
 					break;
 				case 5:
+					print.enterIdRestaurant();
+					int restaurantId = scannerInt.nextInt();
+					if (!restaurantDaoImpl.verifyExistenceRestaurantID(restaurantId)) {
+						break;
+					}
+					Restaurant restaurant = restaurantDaoImpl.showRestaurantByID(restaurantId);
+					print.showRestaurant(restaurant);
+					break;
+				case 6:
 					runMain = false;
 					break;
 				default:

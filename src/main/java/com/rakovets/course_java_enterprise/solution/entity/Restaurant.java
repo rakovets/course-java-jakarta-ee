@@ -46,6 +46,7 @@ public class Restaurant {
 
 	@Override
 	public String toString() {
-		return String.format("Restaurant { id=%-3d, name='%s' }", id, name);
+		return String.format("Restaurant id=%-3d, name='%s'\nDishes: %s\nReviews: %s",
+				id, name, getListDish(), getListReview());
 	}
 }

@@ -1,12 +1,12 @@
 package main.java.com.rakovets.course_java_enterprise.solution.dao.impl;
 
 import main.java.com.rakovets.course_java_enterprise.solution.connection.ConnectionManager;
-import main.java.com.rakovets.course_java_enterprise.solution.dao.ReviewDao;
+import main.java.com.rakovets.course_java_enterprise.solution.dao.Dao;
 import main.java.com.rakovets.course_java_enterprise.solution.entity.Review;
 
 import java.sql.*;
 
-public class ReviewDaoImpl implements ReviewDao<Review> {
+public class ReviewDaoImpl implements Dao<Review> {
 	@Override
 	public Review save(Review review) {
 		try {
@@ -30,27 +30,5 @@ public class ReviewDaoImpl implements ReviewDao<Review> {
 			System.out.println("SQLException: " + e);
 		}
 		return review;
-	}
-
-	@Override
-	public boolean verifyExistenceReviewID(int reviewID) {
-		boolean existID = false;
-		try {
-			Connection connection = ConnectionManager.getConnection();
-			try (Statement statement = connection.createStatement()) {
-				ResultSet resultSet = statement.executeQuery("SELECT * FROM review");
-				while (resultSet.next()) {
-					if (resultSet.getInt("id") == reviewID) {
-						existID = true;
-					}
-				}
-				if (!existID) {
-					System.out.println("ID NOT EXIST");
-				}
-			}
-		} catch (SQLException e) {
-			System.out.println("SQLException: " + e);
-		}
-		return existID;
 	}
 }

@@ -22,16 +22,8 @@ public class Review {
 		return content;
 	}
 
-	public void setContent(String content) {
-		this.content = content;
-	}
-
 	public int getRestaurantID() {
 		return restaurantID;
-	}
-
-	public void setRestaurantID(int restaurantID) {
-		this.restaurantID = restaurantID;
 	}
 
 	@Override
