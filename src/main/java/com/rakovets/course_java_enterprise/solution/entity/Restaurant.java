@@ -6,6 +6,7 @@ public class Restaurant {
 	private int id;
 	private String name;
 	private List<Dish> listDish;
+	private List<Review> listReview;
 
 	public Restaurant(String name) {
 		this.name = name;
@@ -33,6 +34,14 @@ public class Restaurant {
 
 	public void setListDish(List<Dish> listDish) {
 		this.listDish = listDish;
+	}
+
+	public List<Review> getListReview() {
+		return listReview;
+	}
+
+	public void setListReview(List<Review> listReview) {
+		this.listReview = listReview;
 	}
 
 	@Override
