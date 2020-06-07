@@ -30,7 +30,7 @@ public class ReviewDaoInst implements ReviewDao<Review> {
 	}
 
 	@Override
-	public boolean verificationID(int restaurantID) {
+	public boolean verifyExistenceRestaurantID(int restaurantID) {
 		boolean existID = false;
 		try {
 			Connection connection = ConnectionManager.getConnection();

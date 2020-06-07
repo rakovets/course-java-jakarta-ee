@@ -20,11 +20,11 @@ public class Print {
 		System.out.print("\nEnter ID restaurant: > ");
 	}
 
-	public void restaurant(Restaurant restaurant) {
+	public void showRestaurant(Restaurant restaurant) {
 		System.out.println(restaurant);
 	}
 
-	public void review(Review review) {
+	public void showReview(Review review) {
 		System.out.println(review);
 	}
 }

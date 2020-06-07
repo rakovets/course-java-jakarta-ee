@@ -27,20 +27,19 @@ public class Controller {
 					restaurantDao = InstanceObject.getInstanceRestaurantDao();
 					print.enterNameRestaurant();
 					Restaurant savedRestaurant = restaurantDao.save(new Restaurant(scannerLine.nextLine()));
-					print.restaurant(savedRestaurant);
+					print.showRestaurant(savedRestaurant);
 					break;
 				case 2:
 					reviewDao = InstanceObject.getInstanceReviewDao();
-					restaurantDao = InstanceObject.getInstanceRestaurantDao();
 					print.enterIdRestaurant();
 					int restaurantID = scannerInt.nextInt();
-					if (!reviewDao.verificationID(restaurantID)) {
+					if (!reviewDao.verifyExistenceRestaurantID(restaurantID)) {
 						break;
 					}
 					print.enterContentReview();
 					String content = scannerLine.nextLine();
 					Review review = reviewDao.save(new Review(content, restaurantID));
-					print.review(review);
+					print.showReview(review);
 					break;
 				case 3:
 					runMain = false;
