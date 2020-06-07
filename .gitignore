@@ -1,3 +1,6 @@
+# Java
+*.class
+
 # IntelliJ IDEA
 .idea/
 out/
