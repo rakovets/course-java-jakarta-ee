@@ -3,9 +3,9 @@ package main.java.com.rakovets.course_java_enterprise.solution.entity;
 public class Review {
     private long id;
     private String content;
-    private Restaurant restaurant;
+    private long restaurant;
 
-    public Review(String content, Restaurant restaurant) {
+    public Review(String content, long restaurant) {
         this.content = content;
         this.restaurant = restaurant;
     }
@@ -26,11 +26,11 @@ public class Review {
         this.content = content;
     }
 
-    public Restaurant getRestaurant() {
+    public long getRestaurant() {
         return restaurant;
     }
 
-    public void setRestaurant(Restaurant restaurant) {
+    public void setRestaurant(long restaurant) {
         this.restaurant = restaurant;
     }
 

@@ -1,19 +1,20 @@
-package main.java.com.rakovets.course_java_enterprise.solution.dao;
+package main.java.com.rakovets.course_java_enterprise.solution.dao.Impl;
 
 import main.java.com.rakovets.course_java_enterprise.solution.connection.ConnectionManager;
+import main.java.com.rakovets.course_java_enterprise.solution.dao.Dao;
 import main.java.com.rakovets.course_java_enterprise.solution.entity.Restaurant;
 
 import java.sql.*;
 
-public class RestaurantDao implements Dao<Restaurant> {
+public class RestaurantDaoImpl implements Dao<Restaurant> {
     private static final Object LOCK = new Object();
-    private static RestaurantDao INSTANCE = null;
+    private static RestaurantDaoImpl INSTANCE = null;
 
-    public static RestaurantDao getInstance() {
+    public static RestaurantDaoImpl getInstance() {
         if (INSTANCE == null) {
-            synchronized (LOCK){
+            synchronized (LOCK) {
                 if (INSTANCE == null) {
-                    INSTANCE = new RestaurantDao();
+                    INSTANCE = new RestaurantDaoImpl();
                 }
             }
         }
@@ -21,7 +22,7 @@ public class RestaurantDao implements Dao<Restaurant> {
     }
 
     @Override
-    public Restaurant save(Restaurant restaurant) throws SQLException {
+    public Restaurant save(Restaurant restaurant) {
         try (Connection connection = ConnectionManager.getConnection()) {
             PreparedStatement preparedStatement =
                     connection.prepareStatement("INSERT INTO restaurant (name) VALUES (?)",
@@ -29,7 +30,7 @@ public class RestaurantDao implements Dao<Restaurant> {
             preparedStatement.setString(1, restaurant.getName());
 
             long count = preparedStatement.executeUpdate();
-            System.out.println("Rows: " + count);
+            System.out.println("Rows added in DB: " + count);
             ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
             if (generatedKeys.next()) {
                 restaurant.setId(generatedKeys.getLong(1));
