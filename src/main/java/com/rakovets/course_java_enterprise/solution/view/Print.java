@@ -6,7 +6,8 @@ import main.java.com.rakovets.course_java_enterprise.solution.entity.Review;
 
 public class Print {
 	public void actionOptionsUI() {
-		System.out.print("\nAction options:\n1. Add restaurant\n2. Add review\n3. Add dish\n4. Exit\n\n" +
+		System.out.print("\nAction options:\n1. Create new restaurant\n2. Add review to restaurant\n" +
+				"3. Create new dish\n4. Add dish to restaurant\n5. Exit\n\n" +
 				"Enter number: > ");
 	}
 
@@ -24,6 +25,10 @@ public class Print {
 
 	public void enterIdRestaurant() {
 		System.out.print("\nEnter ID restaurant: > ");
+	}
+
+	public void enterIdDish() {
+		System.out.print("\nEnter ID dish: > ");
 	}
 
 	public void showRestaurant(Restaurant restaurant) {

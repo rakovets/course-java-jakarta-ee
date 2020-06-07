@@ -4,7 +4,7 @@ import main.java.com.rakovets.course_java_enterprise.solution.entity.Dish;
 import main.java.com.rakovets.course_java_enterprise.solution.entity.Restaurant;
 
 public interface RestaurantDao<R> extends Dao<Restaurant>{
-	Dish saveDish(Dish dish, int restaurant_id);
+	boolean addDishToRestaurant(int restaurantID, int dishID);
 
 	boolean verifyExistenceRestaurantID(int id);
 }

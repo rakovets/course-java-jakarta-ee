@@ -1,13 +1,12 @@
-package main.java.com.rakovets.course_java_enterprise.solution.dao.inst;
+package main.java.com.rakovets.course_java_enterprise.solution.dao.impl;
 
 import main.java.com.rakovets.course_java_enterprise.solution.connection.ConnectionManager;
 import main.java.com.rakovets.course_java_enterprise.solution.dao.RestaurantDao;
-import main.java.com.rakovets.course_java_enterprise.solution.entity.Dish;
 import main.java.com.rakovets.course_java_enterprise.solution.entity.Restaurant;
 
 import java.sql.*;
 
-public class RestaurantDaoInst implements RestaurantDao<Restaurant> {
+public class RestaurantDaoImpl implements RestaurantDao<Restaurant> {
 	@Override
 	public Restaurant save(Restaurant restaurant) {
 		try {
@@ -30,27 +29,23 @@ public class RestaurantDaoInst implements RestaurantDao<Restaurant> {
 	}
 
 	@Override
-	public Dish saveDish(Dish dish, int restaurant_id) {
+	public boolean addDishToRestaurant(int restaurantID, int dishID) {
+		boolean resultAdd = false;
 		try {
 			Connection connection = ConnectionManager.getConnection();
 			System.out.println("\nJDBC connected!");
 			try (PreparedStatement preparedStatement = connection.prepareStatement(
-					"INSERT INTO dish (name) VALUE (?)", Statement.RETURN_GENERATED_KEYS)) {
-				preparedStatement.setString(1, dish.getName());
+					"INSERT INTO restaurant_dish (restaurant_id, dish_id) VALUE (?, ?)")) {
+				preparedStatement.setInt(1, restaurantID);
+				preparedStatement.setInt(2, dishID);
 				preparedStatement.executeUpdate();
-				ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
-				if (generatedKeys.next()) {
-					dish.setId(generatedKeys.getInt(1));
-				}
-				preparedStatement.addBatch(String.format("INSERT INTO restaurant_dish (restaurant_id, dish_id)" +
-						" VALUE (%d, %d)", restaurant_id, dish.getId()));
-				preparedStatement.executeBatch();
-				System.out.print("Added new ");
+				System.out.printf("Added dish ID = %d to restaurant ID = %d - ", dishID, restaurantID);
+				resultAdd = true;
 			}
 		} catch (SQLException e) {
 			System.out.println("SQLException: " + e);
 		}
-		return dish;
+		return resultAdd;
 	}
 
 	@Override
