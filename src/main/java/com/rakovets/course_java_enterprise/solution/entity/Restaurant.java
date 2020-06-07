@@ -1,8 +1,12 @@
 package main.java.com.rakovets.course_java_enterprise.solution.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Restaurant {
     private long id;
     private String name;
+    private Set<Dish> dishes = new HashSet<>();
 
     public Restaurant(String name) {
         this.name = name;
@@ -22,6 +26,14 @@ public class Restaurant {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Set<Dish> getDishes() {
+        return dishes;
+    }
+
+    public void setDishes(Set<Dish> dishes) {
+        this.dishes = dishes;
     }
 
     @Override
