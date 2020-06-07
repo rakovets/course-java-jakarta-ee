@@ -1,11 +1,12 @@
-package main.java.com.rakovets.course_java_enterprise.solution.dao;
+package main.java.com.rakovets.course_java_enterprise.solution.dao.inst;
 
 import main.java.com.rakovets.course_java_enterprise.solution.connection.ConnectionManager;
+import main.java.com.rakovets.course_java_enterprise.solution.dao.Dao;
 import main.java.com.rakovets.course_java_enterprise.solution.entity.Restaurant;
 
 import java.sql.*;
 
-public class RestaurantDao implements Dao<Restaurant> {
+public class RestaurantDaoInst implements Dao<Restaurant> {
 	@Override
 	public Restaurant save(Restaurant restaurant) {
 		try {

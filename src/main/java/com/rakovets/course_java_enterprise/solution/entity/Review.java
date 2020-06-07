@@ -36,6 +36,6 @@ public class Review {
 
 	@Override
 	public String toString() {
-		return String.format("Review { id = %-3d, content = '%s', restaurantID = %d }", id, content, restaurantID);
+		return String.format("Review { id = %-3d, content = '%s', restaurant_id = %d }", id, content, restaurantID);
 	}
 }
