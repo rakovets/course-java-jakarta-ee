@@ -48,22 +48,21 @@ public class RestaurantDaoImpl implements RestaurantDao {
 
     @Override
     public Dish saveDishToRestaurant(Dish dish, long restaurantId) {
-        try(Connection connection = ConnectionManager.getConnection()) {
-            PreparedStatement preparedStatement =
-                    connection.prepareStatement("INSERT INTO dish (name) VALUES (?)",
-                            Statement.RETURN_GENERATED_KEYS);
-            preparedStatement.setString(1, dish.getName());
+        if (checkIdOfRestaurantOnExist(restaurantId)) {
+            try(Connection connection = ConnectionManager.getConnection()) {
+                PreparedStatement preparedStatement =
+                        connection.prepareStatement("INSERT INTO dish (name) VALUES (?)",
+                                Statement.RETURN_GENERATED_KEYS);
+                preparedStatement.setString(1, dish.getName());
 
-            long count = preparedStatement.executeUpdate();
-            System.out.println("Dish saved. Rows added in DB with dishes: " + count);
+                long count = preparedStatement.executeUpdate();
+                System.out.println("Dish saved. Rows added in DB with dishes: " + count);
 
-            ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
-            if (generatedKeys.next()) {
-                dish.setId(generatedKeys.getLong(1));
-            }
+                ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
+                if (generatedKeys.next()) {
+                    dish.setId(generatedKeys.getLong(1));
+                }
 
-            if (checkIdOfRestaurantOnExist(restaurantId)) {
-                System.out.println("This restaurant exist!");
                 PreparedStatement ps = connection.
                         prepareStatement("INSERT INTO restaurant_dish (restaurant_id, dish_id) VALUES (?, ?)");
                 ps.setLong(1, restaurantId);
@@ -71,11 +70,12 @@ public class RestaurantDaoImpl implements RestaurantDao {
 
                 long countOfRows = ps.executeUpdate();
                 System.out.println("ID of restaurant and dish saved. Rows added in DB with dishes: " + countOfRows);
-            } else {
-                System.out.println("This restaurant not exist");
+
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } else {
+            System.out.println("This restaurant not exist");
         }
         return dish;
     }
