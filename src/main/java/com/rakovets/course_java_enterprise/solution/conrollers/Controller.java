@@ -9,6 +9,7 @@ import main.java.com.rakovets.course_java_enterprise.solution.entity.Review;
 import main.java.com.rakovets.course_java_enterprise.solution.instanceObject.InstanceObject;
 import main.java.com.rakovets.course_java_enterprise.solution.view.Print;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Controller {
@@ -75,6 +76,18 @@ public class Controller {
 					print.showRestaurant(restaurant);
 					break;
 				case 6:
+					List<Restaurant> listRestaurants = restaurantDaoImpl.findAll();
+					print.listRestaurants(listRestaurants);
+					break;
+				case 7:
+					List<Dish> listDishes = dishDaoImpl.findAll();
+					print.listDishes(listDishes);
+					break;
+				case 8:
+					List<Review> listReviews = reviewDaoImpl.findAll();
+					print.listReviews(listReviews);
+					break;
+				case 9:
 					runMain = false;
 					break;
 				default:

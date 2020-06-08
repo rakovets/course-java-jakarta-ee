@@ -31,6 +31,29 @@ public class RestaurantDaoImpl implements RestaurantDao<Restaurant> {
 	}
 
 	@Override
+	public List<Restaurant> findAll() {
+		List listRestaurant = InstanceObject.getInstanceListRestaurant();
+		if (!listRestaurant.isEmpty()) {
+			listRestaurant.clear();
+		}
+		try {
+			Connection connection = ConnectionManager.getConnection();
+			System.out.println("\nJDBC connected!");
+			try (Statement statement = connection.createStatement()) {
+				ResultSet resultSet = statement.executeQuery("SELECT * FROM restaurant ORDER BY id");
+				while (resultSet.next()) {
+					Restaurant restaurant = new Restaurant(resultSet.getString("name"));
+					restaurant.setId(resultSet.getInt("id"));
+					listRestaurant.add(restaurant);
+				}
+			}
+		} catch (SQLException e) {
+			System.out.println("SQLException: " + e);
+		}
+		return listRestaurant;
+	}
+
+	@Override
 	public boolean addDishToRestaurant(int restaurantID, int dishID) {
 		boolean resultAdd = false;
 		try {

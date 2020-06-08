@@ -4,11 +4,13 @@ import main.java.com.rakovets.course_java_enterprise.solution.entity.Dish;
 import main.java.com.rakovets.course_java_enterprise.solution.entity.Restaurant;
 import main.java.com.rakovets.course_java_enterprise.solution.entity.Review;
 
+import java.util.List;
+
 public class Print {
 	public void actionOptionsUI() {
 		System.out.print("\nAction options:\n1. Create new restaurant\n2. Add review to restaurant\n" +
-				"3. Create new dish\n4. Add dish to restaurant\n5. Show restaurant by ID\n6. Exit\n\n" +
-				"Enter number: > ");
+				"3. Create new dish\n4. Add dish to restaurant\n5. Show restaurant with dishes and reviews by ID\n" +
+				"6. Show all restaurants\n7. Show all dishes\n8. Show all reviews\n9. Exit\n\nEnter number: > ");
 	}
 
 	public void enterNameRestaurant() {
@@ -41,5 +43,23 @@ public class Print {
 
 	public void showDish(Dish dish) {
 		System.out.println(dish);
+	}
+
+	public void listRestaurants(List<Restaurant> listRestaurants) {
+		System.out.println("All restaurants: ");
+		listRestaurants.forEach(unit -> System.out.println(String.format("id = %d, name = '%s'",
+				unit.getId(), unit.getName())));
+	}
+
+	public void listDishes(List<Dish> listDishes) {
+		System.out.println("All dishes: ");
+		listDishes.forEach(unit -> System.out.println(String.format("id = %d, name = '%s'",
+				unit.getId(), unit.getName())));
+	}
+
+	public void listReviews(List<Review> listReviews) {
+		System.out.println("All Reviews: ");
+		listReviews.forEach(unit -> System.out.println(String.format("id = %d, name = '%s', restaurant ID = %d",
+				unit.getId(), unit.getContent(), unit.getRestaurantID())));
 	}
 }

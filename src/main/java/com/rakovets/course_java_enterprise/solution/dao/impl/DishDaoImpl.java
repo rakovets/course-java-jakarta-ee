@@ -3,8 +3,10 @@ package main.java.com.rakovets.course_java_enterprise.solution.dao.impl;
 import main.java.com.rakovets.course_java_enterprise.solution.connection.ConnectionManager;
 import main.java.com.rakovets.course_java_enterprise.solution.dao.DishDao;
 import main.java.com.rakovets.course_java_enterprise.solution.entity.Dish;
+import main.java.com.rakovets.course_java_enterprise.solution.instanceObject.InstanceObject;
 
 import java.sql.*;
+import java.util.List;
 
 public class DishDaoImpl implements DishDao<Dish> {
 
@@ -27,6 +29,29 @@ public class DishDaoImpl implements DishDao<Dish> {
 			System.out.println("SQLException: " + e);
 		}
 		return dish;
+	}
+
+	@Override
+	public List<Dish> findAll() {
+		List listDishes = InstanceObject.getInstanceListDishes();
+		if (!listDishes.isEmpty()) {
+			listDishes.clear();
+		}
+		try {
+			Connection connection = ConnectionManager.getConnection();
+			System.out.println("\nJDBC connected!");
+			try (Statement statement = connection.createStatement()) {
+				ResultSet resultSet = statement.executeQuery("SELECT * FROM dish ORDER BY id");
+				while (resultSet.next()) {
+					Dish dish = new Dish(resultSet.getString("name"));
+					dish.setId(resultSet.getInt("id"));
+					listDishes.add(dish);
+				}
+			}
+		} catch (SQLException e) {
+			System.out.println("SQLException: " + e);
+		}
+		return listDishes;
 	}
 
 	@Override

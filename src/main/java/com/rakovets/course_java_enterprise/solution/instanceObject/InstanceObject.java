@@ -15,6 +15,7 @@ public class InstanceObject {
 	private static DishDaoImpl dishDao = null;
 	private static List listDishes = null;
 	private static List listReview = null;
+	private static List listRestaurant = null;
 	private static Print print = null;
 
 	public static RestaurantDaoImpl getInstanceRestaurantDao() {
@@ -81,5 +82,16 @@ public class InstanceObject {
 			}
 		}
 		return listReview;
+	}
+
+	public static List getInstanceListRestaurant() {
+		if (listRestaurant == null) {
+			synchronized (LOCK) {
+				if (listRestaurant == null) {
+					listRestaurant = new ArrayList();
+				}
+			}
+		}
+		return listRestaurant;
 	}
 }
