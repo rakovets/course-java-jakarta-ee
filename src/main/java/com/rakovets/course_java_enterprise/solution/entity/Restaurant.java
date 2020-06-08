@@ -7,6 +7,7 @@ public class Restaurant {
     private long id;
     private String name;
     private Set<Dish> dishes = new HashSet<>();
+    private Set<Review> reviews = new HashSet<>();
 
     public Restaurant(String name) {
         this.name = name;
@@ -36,11 +37,21 @@ public class Restaurant {
         this.dishes = dishes;
     }
 
+    public Set<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(Set<Review> reviews) {
+        this.reviews = reviews;
+    }
+
     @Override
     public String toString() {
         return "Restaurant{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", dishes=" + dishes +
+                ", reviews=" + reviews +
                 '}';
     }
 }
