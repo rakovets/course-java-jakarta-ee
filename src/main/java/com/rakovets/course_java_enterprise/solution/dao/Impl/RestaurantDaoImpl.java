@@ -7,8 +7,6 @@ import main.java.com.rakovets.course_java_enterprise.solution.entity.Dish;
 import main.java.com.rakovets.course_java_enterprise.solution.entity.Restaurant;
 
 import java.sql.*;
-import java.util.HashSet;
-import java.util.Set;
 
 public class RestaurantDaoImpl implements RestaurantDao {
     private static final Object LOCK = new Object();
@@ -76,6 +74,7 @@ public class RestaurantDaoImpl implements RestaurantDao {
             }
         } else {
             System.out.println("This restaurant not exist");
+            dish.setName("Not saved");
         }
         return dish;
     }

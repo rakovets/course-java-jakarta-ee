@@ -14,15 +14,17 @@ public class Demo {
         Scanner scanner = new Scanner(System.in);
         RestaurantDaoImpl restaurantDao = RestaurantDaoImpl.getInstance();
         ReviewDaoImpl reviewDao = ReviewDaoImpl.getInstance();
+        menu();
 
         while (menuWork) {
-            menu();
+
             String answer = scanner.nextLine();
             if (answer.equals("1")) {
                 System.out.println("Enter title of restaurant:\n");
                 String titleOfRestaurant = scanner.nextLine();
                 Restaurant savedRestaurant = restaurantDao.save(new Restaurant(titleOfRestaurant));
                 System.out.println("Restaurant saved in DB:\n" + savedRestaurant);
+                menu();
             } else if (answer.equals("2")) {
                 System.out.println("Enter content of review:\n");
                 String contentOfReview = scanner.nextLine();
@@ -30,6 +32,7 @@ public class Demo {
                 long idOfRestaurant = scanner.nextLong();
                 Review review = reviewDao.save(new Review(contentOfReview, idOfRestaurant));
                 System.out.println("Review saved in DB:\n" + review.toString());
+                menu();
             } else if (answer.equals("3")) {
                 System.out.println("Enter title of dish:\n");
                 String titleOfDish = scanner.nextLine();
@@ -37,22 +40,9 @@ public class Demo {
                 long idOfRestaurant = scanner.nextLong();
                 Dish dish = restaurantDao.saveDishToRestaurant(new Dish(titleOfDish), idOfRestaurant);
                 System.out.println("Dish saved in DB:\n" + dish.toString());
+                menu();
             }
         }
-
-
-//        RestaurantDaoImpl restaurantDao = RestaurantDaoImpl.getInstance();
-//        Restaurant savedRestaurant = restaurantDao.save(new Restaurant("Big Pizza"));
-//        System.out.println(savedRestaurant);
-
-//        ReviewDaoImpl reviewDao = ReviewDaoImpl.getInstance();
-//        Review savedReview = reviewDao.save(new Review("Great restaurant for lover of french meal", 11));
-//        System.out.println(savedReview);
-
-//        restaurantDao.saveDishToRestaurant("Sunny", new Dish("Lazania"));
-
-//        Dish dish = restaurantDao.saveDishToRestaurant(new Dish("Provance"), 1);
-//        System.out.println(dish.toString());
     }
 
     public static void menu() {
