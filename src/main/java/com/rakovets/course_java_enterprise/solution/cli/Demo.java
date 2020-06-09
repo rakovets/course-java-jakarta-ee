@@ -41,6 +41,15 @@ public class Demo {
                 Dish dish = restaurantDao.saveDishToRestaurant(new Dish(titleOfDish), idOfRestaurant);
                 System.out.println("Dish saved in DB:\n" + dish.toString());
                 menu();
+            } else if (answer.equals("4")) {
+                System.out.println("Enter content of review:\n");
+                String contentOfReview = scanner.nextLine();
+                System.out.println("Enter id of restaurant:\n");
+                long idOfRestaurant = scanner.nextLong();
+                Review review = restaurantDao.
+                        saveReviewToRestaurant(new Review(contentOfReview, idOfRestaurant), idOfRestaurant);
+                System.out.println("Review saved in DB:\n" + review.toString());
+                menu();
             }
         }
     }

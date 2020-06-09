@@ -5,6 +5,7 @@ import main.java.com.rakovets.course_java_enterprise.solution.connection.Connect
 import main.java.com.rakovets.course_java_enterprise.solution.dao.RestaurantDao;
 import main.java.com.rakovets.course_java_enterprise.solution.entity.Dish;
 import main.java.com.rakovets.course_java_enterprise.solution.entity.Restaurant;
+import main.java.com.rakovets.course_java_enterprise.solution.entity.Review;
 
 import java.sql.*;
 
@@ -67,7 +68,8 @@ public class RestaurantDaoImpl implements RestaurantDao {
                 ps.setLong(2, dish.getId());
 
                 long countOfRows = ps.executeUpdate();
-                System.out.println("ID of restaurant and dish saved. Rows added in DB with dishes: " + countOfRows);
+                System.out.println("ID of restaurant and dish saved. Rows added in DB with dishes and restaurants: "
+                        + countOfRows);
 
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -77,6 +79,43 @@ public class RestaurantDaoImpl implements RestaurantDao {
             dish.setName("Not saved");
         }
         return dish;
+    }
+
+    @Override
+    public Review saveReviewToRestaurant(Review review, long restaurantId) {
+        if (checkIdOfRestaurantOnExist(restaurantId)) {
+            try(Connection connection = ConnectionManager.getConnection()) {
+                PreparedStatement preparedStatement =
+                        connection.prepareStatement("INSERT INTO review (content, restaurant_id) VALUES (?, ?)",
+                                Statement.RETURN_GENERATED_KEYS);
+                preparedStatement.setString(1, review.getContent());
+                preparedStatement.setLong(2, restaurantId);
+
+                long count = preparedStatement.executeUpdate();
+                System.out.println("Review saved. Rows added in DB with reviews: " + count);
+
+                ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
+                if (generatedKeys.next()) {
+                    review.setId(generatedKeys.getLong(1));
+                }
+
+                PreparedStatement ps = connection.
+                        prepareStatement("INSERT INTO restaurant_review (restaurant_id, review_id) VALUES (?, ?)");
+                ps.setLong(1, restaurantId);
+                ps.setLong(2, review.getId());
+
+                long countOfRows = ps.executeUpdate();
+                System.out.println("ID of restaurant and review saved. Rows added in DB with reviews and restaurants: "
+                        + countOfRows);
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        } else {
+            System.out.println("This restaurant not exist");
+            review.setContent("Not saved");
+        }
+        return review;
     }
 
     public boolean checkIdOfRestaurantOnExist(long id) {
