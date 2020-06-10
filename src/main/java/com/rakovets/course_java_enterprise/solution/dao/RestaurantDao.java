@@ -10,4 +10,6 @@ public interface RestaurantDao extends Dao<Restaurant> {
     Dish saveDishToRestaurant(Dish dish, long restaurantId);
 
     Review saveReviewToRestaurant(Review review, long restaurantId);
+
+    Restaurant getRestaurantById(long restaurantId);
 }

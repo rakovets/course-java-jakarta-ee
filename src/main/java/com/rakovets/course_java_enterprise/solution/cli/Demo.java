@@ -50,6 +50,17 @@ public class Demo {
                         saveReviewToRestaurant(new Review(contentOfReview, idOfRestaurant), idOfRestaurant);
                 System.out.println("Review saved in DB:\n" + review.toString());
                 menu();
+            } else if (answer.equals("5")) {
+                System.out.println("Enter ID of restaurant");
+                long restaurantId = scanner.nextLong();
+                Restaurant restaurant = restaurantDao.getRestaurantById(restaurantId);
+                System.out.println("Restaurant: \n");
+                System.out.println(restaurant);
+                menu();
+            } else if (answer.equals("6")) {
+                break;
+            } else {
+                System.out.println("Choose action that exist!");
             }
         }
     }

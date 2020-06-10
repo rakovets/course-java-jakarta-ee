@@ -8,6 +8,8 @@ import main.java.com.rakovets.course_java_enterprise.solution.entity.Restaurant;
 import main.java.com.rakovets.course_java_enterprise.solution.entity.Review;
 
 import java.sql.*;
+import java.util.HashSet;
+import java.util.Set;
 
 public class RestaurantDaoImpl implements RestaurantDao {
     private static final Object LOCK = new Object();
@@ -134,6 +136,52 @@ public class RestaurantDaoImpl implements RestaurantDao {
             e.printStackTrace();
         }
         return idExist;
+    }
+
+    @Override
+    public Restaurant getRestaurantById(long restaurantId) {
+        Set<Dish> dishes = new HashSet<>();
+        Set<Review> reviews = new HashSet<>();
+        Restaurant restaurant = null;
+
+        if (checkIdOfRestaurantOnExist(restaurantId)) {
+            try(Connection connection = ConnectionManager.getConnection()) {
+                Statement statement = connection.createStatement();
+                ResultSet resultSetOfRestaurants =
+                        statement.executeQuery(String.format("SELECT * FROM restaurant WHERE id = %d", restaurantId));
+                while (resultSetOfRestaurants.next()) {
+                    restaurant = new Restaurant(resultSetOfRestaurants.getString("name"));
+                    restaurant.setId(resultSetOfRestaurants.getLong("id"));
+                }
+
+                ResultSet resultSetOfDishes =
+                        statement.executeQuery(String.format("SELECT d.name FROM restaurant AS r\n" +
+                                "JOIN restaurant_dish AS rd ON r.id = rd.restaurant_id\n" +
+                                "JOIN dish AS d ON d.id = rd.dish_id\n" +
+                                "WHERE r.id = %d;", restaurantId));
+                while (resultSetOfDishes.next()) {
+                    dishes.add(new Dish(resultSetOfDishes.getString("name")));
+                }
+                restaurant.setDishes(dishes);
+
+                ResultSet resultSetOfReviews =
+                        statement.executeQuery(String.format("SELECT r.id,  rev.content FROM restaurant AS r\n" +
+                                "JOIN restaurant_review AS rr ON r.id = rr.restaurant_id\n" +
+                                "JOIN review AS rev ON rev.id = rr.review_id\n" +
+                                "WHERE r.id = %d;", restaurantId));
+                while (resultSetOfReviews.next()) {
+                    reviews.add(new Review(resultSetOfReviews.getString("content"),
+                            resultSetOfReviews.getLong("id")));
+                }
+                restaurant.setReviews(reviews);
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        } else {
+            System.out.println("This restaurant not exist");
+        }
+        return restaurant;
     }
 
     @Override
