@@ -50,7 +50,7 @@ public class RestaurantDaoImpl implements RestaurantDao {
     @Override
     public Dish saveDishToRestaurant(Dish dish, long restaurantId) {
         if (checkIdOfRestaurantOnExist(restaurantId)) {
-            try(Connection connection = ConnectionManager.getConnection()) {
+            try (Connection connection = ConnectionManager.getConnection()) {
                 PreparedStatement preparedStatement =
                         connection.prepareStatement("INSERT INTO dish (name) VALUES (?)",
                                 Statement.RETURN_GENERATED_KEYS);
@@ -86,7 +86,7 @@ public class RestaurantDaoImpl implements RestaurantDao {
     @Override
     public Review saveReviewToRestaurant(Review review, long restaurantId) {
         if (checkIdOfRestaurantOnExist(restaurantId)) {
-            try(Connection connection = ConnectionManager.getConnection()) {
+            try (Connection connection = ConnectionManager.getConnection()) {
                 PreparedStatement preparedStatement =
                         connection.prepareStatement("INSERT INTO review (content, restaurant_id) VALUES (?, ?)",
                                 Statement.RETURN_GENERATED_KEYS);
@@ -122,7 +122,7 @@ public class RestaurantDaoImpl implements RestaurantDao {
 
     public boolean checkIdOfRestaurantOnExist(long id) {
         boolean idExist = false;
-        try(Connection connection = ConnectionManager.getConnection()) {
+        try (Connection connection = ConnectionManager.getConnection()) {
             PreparedStatement ps = connection.prepareStatement("SELECT id FROM restaurant WHERE id = ?");
             ps.setLong(1, id);
 
@@ -145,7 +145,7 @@ public class RestaurantDaoImpl implements RestaurantDao {
         Restaurant restaurant = null;
 
         if (checkIdOfRestaurantOnExist(restaurantId)) {
-            try(Connection connection = ConnectionManager.getConnection()) {
+            try (Connection connection = ConnectionManager.getConnection()) {
                 Statement statement = connection.createStatement();
                 ResultSet resultSetOfRestaurants =
                         statement.executeQuery(String.format("SELECT * FROM restaurant WHERE id = %d", restaurantId));
