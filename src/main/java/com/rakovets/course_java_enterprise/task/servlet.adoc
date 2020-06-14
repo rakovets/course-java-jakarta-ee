@@ -32,12 +32,22 @@
 
 == Task 4
 
-Создать *servlet* который получает *HTTP Request* c *method GET* и *query parameter* `id` какой-либо *entity*, которая хранится в БД. *Servlet* возвращает
-информацию о *entity* в виде *HTML*-станицы.
+Создать *servlet* c URI `/send-name`, принимающий *HTTP Request* c *method POST* с `name` и `surname` пользователя и
+сохраняющий их в *session*.
+
+== Task 5
+
+Создать *servlet* c URI `/full-name`, принимающий *HTTP Request* c *method GET* получающий из сессии `name` и `surname`
+пользователя и возвращающий полное имя пользователя в виде *HTML*-станицы.
+
+== Task 6
+
+Создать *servlet* который получает *HTTP Request* c *method GET* и *query parameter* `id` какой-либо *entity*, которая
+хранится в БД. *Servlet* возвращает информацию о *entity* в виде *HTML*-станицы.
 
 * Информацию о *URL*, *username*, *password* базы данных хранить в начальных данных сервлета.
 
-== Task 5
+== Task 7
 
 Создать страницу с формой для создание *entity*.
 
