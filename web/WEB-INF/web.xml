@@ -14,4 +14,14 @@
         <url-pattern>/DatabaseAccess</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>Task05</servlet-name>
+        <servlet-class>Task05</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Task05</servlet-name>
+        <url-pattern>/Task05</url-pattern>
+    </servlet-mapping>
+
 </web-app>

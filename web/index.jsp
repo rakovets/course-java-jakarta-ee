@@ -50,7 +50,19 @@
     <input type="text" name="entityID" id="entityID-field" required>
     <input type="submit" value="Submit">
 </form>
+<br><br>
 
+<h3>Task 05. Set entity by ID to database</h3>
+<br>
+<form action="Task05" method="post">
+    <label for="entityID-field">Enter ID restaurant</label>
+    <input type="text" name="entityID" id="ID-field" required>
+    <br><br>
+    <label for="entityID-field">Name</label>
+    <input type="text" name="nameEntity" id="entityName-field" required>
+    <input type="submit" value="Submit">
+</form>
+<br><br>
 </body>
 
 </html>
