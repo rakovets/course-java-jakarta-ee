@@ -1,0 +1,31 @@
+label[for=nameTask01-field],
+label[for=nameTask02-field],
+label[for=nameTask04-field],
+label[for=phone-field],
+label[for=entityID-field],
+label[for=nameRestaurant-field] {
+    padding-right: 30px; 
+    font-weight: bold;
+}
+
+label[for=surname-field],
+label[for=surnameTask04-field] {
+    padding-right: 10px; 
+    font-weight: bold;
+}
+
+label[for=mail-field] {
+    padding-right: 40px; 
+    font-weight: bold;
+}
+
+input[type=submit] {
+    display: block; 
+    margin-top: 40px; 
+    padding: 5px 100px 5px 100px; 
+    font-weight: bold;
+}
+
+input[value=Info] {
+    margin-top: 10px;
+}
