@@ -1,11 +1,11 @@
-package main.java.com.rakovets.course_java_enterprise.solution.dao.Impl;
+package com.rakovets.course_java_enterprise.solution.dao.Impl;
 
-import main.java.com.rakovets.course_java_enterprise.solution.connection.ConnectionManager;
+import com.rakovets.course_java_enterprise.solution.connection.ConnectionManager;
 
-import main.java.com.rakovets.course_java_enterprise.solution.dao.RestaurantDao;
-import main.java.com.rakovets.course_java_enterprise.solution.entity.Dish;
-import main.java.com.rakovets.course_java_enterprise.solution.entity.Restaurant;
-import main.java.com.rakovets.course_java_enterprise.solution.entity.Review;
+import com.rakovets.course_java_enterprise.solution.dao.RestaurantDao;
+import com.rakovets.course_java_enterprise.solution.entity.Dish;
+import com.rakovets.course_java_enterprise.solution.entity.Restaurant;
+import com.rakovets.course_java_enterprise.solution.entity.Review;
 
 import java.sql.*;
 import java.util.HashSet;

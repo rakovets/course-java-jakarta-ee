@@ -1,8 +1,8 @@
-package main.java.com.rakovets.course_java_enterprise.solution.dao.Impl;
+package com.rakovets.course_java_enterprise.solution.dao.Impl;
 
-import main.java.com.rakovets.course_java_enterprise.solution.connection.ConnectionManager;
-import main.java.com.rakovets.course_java_enterprise.solution.dao.Dao;
-import main.java.com.rakovets.course_java_enterprise.solution.entity.Review;
+import com.rakovets.course_java_enterprise.solution.connection.ConnectionManager;
+import com.rakovets.course_java_enterprise.solution.dao.Dao;
+import com.rakovets.course_java_enterprise.solution.entity.Review;
 
 import java.sql.*;
 

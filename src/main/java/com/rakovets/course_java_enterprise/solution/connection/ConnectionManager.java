@@ -1,4 +1,4 @@
-package main.java.com.rakovets.course_java_enterprise.solution.connection;
+package com.rakovets.course_java_enterprise.solution.connection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

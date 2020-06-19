@@ -1,8 +1,8 @@
-package main.java.com.rakovets.course_java_enterprise.solution.dao;
+package com.rakovets.course_java_enterprise.solution.dao;
 
-import main.java.com.rakovets.course_java_enterprise.solution.entity.Dish;
-import main.java.com.rakovets.course_java_enterprise.solution.entity.Restaurant;
-import main.java.com.rakovets.course_java_enterprise.solution.entity.Review;
+import com.rakovets.course_java_enterprise.solution.entity.Dish;
+import com.rakovets.course_java_enterprise.solution.entity.Restaurant;
+import com.rakovets.course_java_enterprise.solution.entity.Review;
 
 import java.sql.SQLException;
 

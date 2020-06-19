@@ -1,4 +1,4 @@
-package main.java.com.rakovets.course_java_enterprise.solution.entity;
+package com.rakovets.course_java_enterprise.solution.entity;
 
 import java.util.HashSet;
 import java.util.Set;
