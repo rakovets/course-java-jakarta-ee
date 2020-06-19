@@ -10,8 +10,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
 
-@WebServlet(name = "ForwardServlet", urlPatterns = "/forward-servlet")
-public class ForwardServlet extends HttpServlet {
+@WebServlet(name = "ViewServlet", urlPatterns = "/view-entity")
+public class ViewServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html");
@@ -24,11 +24,10 @@ public class ForwardServlet extends HttpServlet {
             String DATASOURCE_PASSWORD = "12340987";
             Class.forName(DATASOURCE_DRIVER);
             try (Connection connection = DriverManager.getConnection(DATASOURCE_URL, DATASOURCE_USER, DATASOURCE_PASSWORD)) {
-                HttpSession session = req.getSession();
-                int id = Integer.parseInt(session.getAttribute("id").toString());
-                String sql = "SELECT * FROM restaurant WHERE id = ?";
+                String name = req.getParameter("name");
+                String sql = "SELECT * FROM restaurant WHERE name = ?";
                 PreparedStatement preparedStatement = connection.prepareStatement(sql);
-                preparedStatement.setInt(1, id);
+                preparedStatement.setString(1, name);
                 ResultSet resultSet = preparedStatement.executeQuery();
 
                 while (resultSet.next()) {

@@ -12,8 +12,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
 
-@WebServlet(name = "SeventhServlet", urlPatterns = {"/entity-to-db"})
-public class SeventhServlet extends HttpServlet {
+@WebServlet(name = "ControllerServlet", urlPatterns = {"/entity-to-db"})
+public class ControllerServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html");
@@ -28,17 +28,13 @@ public class SeventhServlet extends HttpServlet {
             try (Connection connection = DriverManager.getConnection(DATASOURCE_URL, DATASOURCE_USER, DATASOURCE_PASSWORD)) {
                 String name = req.getParameter("name");
                 String sql = "INSERT INTO restaurant (name) VALUES (?)";
-                PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+                PreparedStatement preparedStatement = connection.prepareStatement(sql);
                 preparedStatement.setString(1, name);
-
-                ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
-                HttpSession session = req.getSession();
-                session.setAttribute("id", generatedKeys.getInt(1));
 
                 long count = preparedStatement.executeUpdate();
                 writer.write("<p>Restaurant saved. Added: " + count + " line</p>");
 
-                String path = "/forward-servlet";
+                String path = "/view-servlet";
                 ServletContext servletContext = getServletContext();
                 RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher(path);
                 requestDispatcher.forward(req, resp);
