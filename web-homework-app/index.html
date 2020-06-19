@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/main.css">
+    <title>Tasks by servlets</title>
+</head>
+
+<body>
+    <h1>Servlets</h1>
+    <h2>Task 1</h2>
+    <form action="first-servlet" method="GET">
+        Name: <input type="text" name="username">
+        Last name: <input type="text" name="userlastname">
+        <input type="submit">
+    </form>
+
+    <h2>Task 2</h2>
+    <form action="second-servlet" method="POST">
+        Name: <input type="text" name="name">
+        Phone number: <input type="number" name="phone">
+        Email: <input type="email" name="email">
+        <input type="submit">
+    </form>
+
+    <h2>Task 3</h2>
+    <form action="third-servlet" method="POST">
+        <input type="submit" value="Get user browser">
+    </form>
+
+    <h2>Task 4</h2>
+    <form action="send-name" method="POST">
+        Name: <input type="text" name="name">
+        Surname: <input type="text" name="surname">
+        <input type="submit" value="Send to session">
+    </form>
+
+    <h2>Task 5</h2>
+    <form action="full-name" method="POST">
+        <input type="submit" value="Get from session">
+    </form>
+
+    <h2>Task 6 (get restaurant by ID)</h2>
+    <form action="entity-from-db" method="GET">
+        ID: <input type="text" name="id">
+        <input type="submit" value="Get entity">
+    </form>
+
+    <h2>Task 7 (save restaurant in DB and get back from other servlet )</h2>
+    <form action="entity-to-db" method="POST">
+        Title: <input type="text" name="name">
+        <input type="submit" value="Save entity">
+    </form>
+</body>
+</html>
