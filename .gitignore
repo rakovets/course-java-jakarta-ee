@@ -5,6 +5,7 @@
 .idea/
 out/
 *.iml
+target/
 
 # JavaEE/JakartaEE
 *.war
