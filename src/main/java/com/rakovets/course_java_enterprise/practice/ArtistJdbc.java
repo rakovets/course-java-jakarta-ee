@@ -1,7 +1,6 @@
-package main.java.com.rakovets.course_java_enterprise.practice;
+package com.rakovets.course_java_enterprise.practice;
 
 import java.sql.*;
-import java.util.PropertyResourceBundle;
 import java.util.Scanner;
 
 class ArtistJdbc {
@@ -22,7 +21,7 @@ class ArtistJdbc {
             Statement statement = connection.createStatement();
 
             while (menuWork) {
-                menu();
+                printMenu();
                 String answer = scanner.nextLine();
                 if (answer.equals("1")) {
                     getArtists(statement);
@@ -48,7 +47,7 @@ class ArtistJdbc {
         }
     }
 
-    public static void menu() {
+    public static void printMenu() {
         System.out.println("\nChoose number:\n1. get all artists\n2. get all songs\n3. get artist by ID\n" +
                 "4. get song by ID\n5. add new artist\n6. add new song\n7. get songs by ID of artist\n" +
                 "8. exit\n");
