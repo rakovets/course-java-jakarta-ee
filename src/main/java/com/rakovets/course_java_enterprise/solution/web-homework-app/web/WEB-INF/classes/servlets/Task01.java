@@ -15,15 +15,22 @@ public class Task01 extends HttpServlet {
 		String[] parameters = {req.getParameter("nameTask01"), req.getParameter("surname")};
 		resp.setContentType("text/html");
 		writer = resp.getWriter();
-		if (parameters[0].length() == 0 & parameters[1].length() == 0) {
-			falseResponse("name, surname");
-		} else if(parameters[0].length() == 0) {
-			falseResponse("name");
-		} else if(parameters[1].length() == 0) {
-			falseResponse("surname");
-		} else {
+		String notValidField = getNotValidField(parameters);
+		if(notValidField == null) {
 			trueResponse(parameters);
+		} else falseResponse(notValidField);
+	}
+
+	private String getNotValidField(String[] parameters) {
+		String notValidField = null;
+		if (parameters[0].length() == 0 & parameters[1].length() == 0) {
+			notValidField = "name, surname";
+		} else if(parameters[0].length() == 0) {
+			notValidField = "name";
+		} else if(parameters[1].length() == 0) {
+			notValidField = "surname";
 		}
+		return notValidField;
 	}
 
 	private void trueResponse(String[] parameters) {
