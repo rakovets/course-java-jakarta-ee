@@ -5,8 +5,10 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <%@include file="header.jsp"  %>
     <main>
-        <h3>Created header, main, footer</h3>
+        <h3>Main</h3>
     </main>
+    <%@include file="footer.jsp"  %>
 </body>
 </html>
