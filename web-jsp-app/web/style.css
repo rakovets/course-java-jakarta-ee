@@ -7,3 +7,12 @@
     color: blue;
     font-size: 27px;
 }
+
+header, footer {
+    background-color: darkgray;
+    font-size: 27px;
+}
+
+main {
+    font-size: 27px;
+}
