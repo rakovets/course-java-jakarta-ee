@@ -1,6 +1,17 @@
 body {
-    background-color: darkgrey;
     width: 100%;
+}
+
+.white {
+    padding: 50px;
+    width: 100%;
+    background-color: white;
+}
+
+.grey {
+    padding: 50px;
+    width: 100%;
+    background-color: darkgrey;
 }
 
 h2 {
