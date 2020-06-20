@@ -18,3 +18,15 @@ main {
     font-size: 27px;
     text-align: center;
 }
+
+input[type=submit] {
+    display: block;
+    margin-top: 40px;
+    padding: 5px 100px 5px 100px;
+    font-weight: bold;
+}
+
+p {
+    font-size: 27px;
+    font-weight: bold;
+}
