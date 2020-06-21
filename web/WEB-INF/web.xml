@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml versio<?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
@@ -6,7 +6,7 @@
 
     <servlet>
         <servlet-name>HelloServlet</servlet-name>
-        <servlet-class>main.java.com.rakovets.course_java_enterprise.solution.servlet.HelloServlet</servlet-class>
+        <servlet-class>HelloServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -16,7 +16,7 @@
 
     <servlet>
         <servlet-name>DataForwardServlet</servlet-name>
-        <servlet-class>main.java.com.rakovets.course_java_enterprise.solution.servlet.DataForwardServlet</servlet-class>
+        <servlet-class>DataForwardServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>

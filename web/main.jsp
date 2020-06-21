@@ -12,8 +12,8 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<jsp:include page="/WEB-INF/jsp/header.jsp" />
-<jsp:include page="/WEB-INF/jsp/main.jsp" />
-<jsp:include page="/WEB-INF/jsp/footer.jsp" />
+<jsp:include page="/web/WEB-INF/jsp/header.jsp" />
+<jsp:include page="/web/WEB-INF/jsp/main1.jsp" />
+<jsp:include page="/web/WEB-INF/jsp/footer.jsp" />
 </body>
 </html>

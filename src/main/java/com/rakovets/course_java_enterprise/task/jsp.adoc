@@ -5,7 +5,7 @@
 == Task 2
 
 Создать JSP-страницу `hello.jsp` в директории `/WEB-INF/jsp`. Задать `color` для `body`: `blue`. Написать servlet
-'HelloServlet`, перенаправляющий *HTTP Request* (method *GET*, URI `/hello`) клиента на эту jsp-страницу `hello.jsp`.
+'main.java.com.rakovets.course_java_enterprise.solution.classes.servlet.HelloServlet`, перенаправляющий *HTTP Request* (method *GET*, URI `/hello`) клиента на эту jsp-страницу `hello.jsp`.
 
 == Task 3
 

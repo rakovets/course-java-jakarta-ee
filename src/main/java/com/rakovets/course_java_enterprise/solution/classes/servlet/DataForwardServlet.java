@@ -1,4 +1,4 @@
-package main.java.com.rakovets.course_java_enterprise.solution.servlet;
+package main.java.com.rakovets.course_java_enterprise.solution.classes.servlet;
 
 import main.java.com.rakovets.course_java_enterprise.solution.entity.User;
 
@@ -17,7 +17,7 @@ public class DataForwardServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         User user = new User(req.getParameter("firstName"), req.getParameter("lastName"));
         req.setAttribute("role", user);
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/jsp/data-forward.jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/data-forward.jsp");
         dispatcher.forward(req, resp);
     }
 }

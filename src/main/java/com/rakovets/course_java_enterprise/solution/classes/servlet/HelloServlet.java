@@ -1,4 +1,4 @@
-package main.java.com.rakovets.course_java_enterprise.solution.servlet;
+package main.java.com.rakovets.course_java_enterprise.solution.classes.servlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,10 +8,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 
-@WebServlet({"/hello.jsp"})
+@WebServlet({"/hello1.jsp"})
 public class HelloServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        getServletContext().getRequestDispatcher("/WEB-INF/jsp/hello.jsp").forward(req, resp);
+        getServletContext().getRequestDispatcher("/WEB-INF/hello1.jsp").forward(req, resp);
     }
 }

@@ -9,7 +9,7 @@
 <html>
 <head>
     <title>Data forward JSP</title>
-    <link rel="stylesheet" href="styleForUser.css">
+    <link rel="stylesheet" href="../../styleForUser.css">
 </head>
 <body>
 <% User user = (User) request.getAttribute("role"); %>
