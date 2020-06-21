@@ -32,7 +32,7 @@
 == Task 6
 
 * Создать JSP-страницу `data-forward.jsp` в директории `/WEB-INF/jsp`.
-* Написать servlet 'DataForwardServlet`, перенаправляющий *HTTP Request* (method *GET*, URI `/data-forward`) клиента с
-параметрами `firstName` и `lastName`на jsp-страницу `data-forward.jsp`.
-* Servlet дополнительно должен передать `User` как `role` для данного пользователя.
+* Написать servlet `DataForwardServlet`, перенаправляющий *HTTP Request* (method *GET*, URI `/data-forward`) клиента с
+параметрами `firstName` и `lastName` на jsp-страницу `data-forward.jsp`.
+* Servlet дополнительно должен добавить `role` для данного `User`.
 * На jsp-странице выводится вся информация о пользователе.
