@@ -1,4 +1,4 @@
-<%--
+<%@ page import="main.java.com.rakovets.course_java_enterprise.solution.entity.User" %><%--
   Created by IntelliJ IDEA.
   User: Lenovo
   Date: 6/17/2020
@@ -9,8 +9,13 @@
 <html>
 <head>
     <title>Data forward JSP</title>
+    <link rel="stylesheet" href="styleForUser.css">
 </head>
 <body>
-In Progress
+<% User user = (User) request.getAttribute("role"); %>
+<h1>Task 06</h1><br>
+<p>User</p>
+<p>FirstName: <%= user.getFirstName() %></p>
+<p>LastName: <%= user.getLastName() %></p>
 </body>
 </html>

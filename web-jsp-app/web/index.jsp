@@ -22,7 +22,15 @@
 
 <h3><a href="main.jsp">Task05</a></h3><br>
 
-<h3><a href="DataForwardServlet">Task06</a></h3><br>
+<p > Task 06:</p>
+<form action="dataForwardServlet">
+    <label for="firstName-field">FirstName</label>
+    <input type="text" name="firstName" id="firstName-field">
+    <br><br>
+    <label for="lastName-field">LastName</label>
+    <input type="text" name="lastName" id="lastName-field">
+    <input type="submit" value="Submit">
+</form>
 
 </body>
 </html>
