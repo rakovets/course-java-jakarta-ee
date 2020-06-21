@@ -1,0 +1,13 @@
+header, main, footer {
+    width: 100% !important;
+}
+
+header, footer {
+    background-color: darkgray !important;
+    height: 3em !important;
+}
+
+main {
+    background-color: white !important;
+    height: 20em !important;
+}
