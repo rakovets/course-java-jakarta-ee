@@ -1,4 +1,6 @@
 # IntelliJ IDEA
 .idea/
 out/
+target/
+*.class
 *.iml
