@@ -1,6 +1,5 @@
 package com.rakovets.course_java_enterprise.solution.jstl.connection;
 
-import javax.sql.DataSource;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.Connection;
 import java.sql.DriverManager;

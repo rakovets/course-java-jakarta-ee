@@ -5,7 +5,7 @@ public class Hero extends BaseEntity {
     private String name;
     private String identity;
     private int age;
-    private Gender gender = Gender.MALE;
+    private Gender gender;
     private Ability ability;
 
     public Hero(String name, String identity, int age, Gender gender) {
