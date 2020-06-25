@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet( name = "ArtistControllerServlet", urlPatterns = {"/artist/artist"})
+@WebServlet( name = "ArtistControllerServlet", urlPatterns = {"/artist"})
 public class ArtistControllerServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

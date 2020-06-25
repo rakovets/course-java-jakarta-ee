@@ -11,7 +11,7 @@
     <title>Create artist</title>
 </head>
 <body>
-    <form action="artist" method="post">
+    <form action="${pageContext.request.contextPath}/artist" method="post">
         Name of artist: <input type="text" name="name"> <br>
         Russian artist: <input type="radio" name="russian" value="yes">Yes
         <input type="radio" name="russian", value="no">No <br><br>
