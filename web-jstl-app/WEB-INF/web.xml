@@ -6,7 +6,7 @@
 
     <servlet>
         <servlet-name>AbilitiesServlet</servlet-name>
-        <servlet-class>com.rakovets.course_java_enterprise.solution.jstl.servlet.AbilitiesServlet</servlet-class>
+        <servlet-class>AbilitiesServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -16,7 +16,7 @@
 
     <servlet>
         <servlet-name>CreateHeroServlet</servlet-name>
-        <servlet-class>com.rakovets.course_java_enterprise.solution.jstl.servlet.CreateHeroServlet</servlet-class>
+        <servlet-class>CreateHeroServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -26,7 +26,7 @@
 
     <servlet>
         <servlet-name>HeroesServlet</servlet-name>
-        <servlet-class>com.rakovets.course_java_enterprise.solution.jstl.servlet.HeroesServlet </servlet-class>
+        <servlet-class>HeroesServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
