@@ -1,12 +1,6 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Main</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <main>
+<%@ page contentType="text/html;charset=UTF-8" %>
+<main>
+    <div class="text-center pt-2">
         <h3>Main</h3>
-    </main>
-</body>
-</html>
+    </div>
+</main>

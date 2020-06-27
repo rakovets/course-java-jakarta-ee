@@ -1,10 +1,19 @@
-header, footer {
-    background-color: darkgray;
+header {
+    color: white;
+    background-color: #004085;
     font-size: 27px;
-    text-align: center;
 }
 
 main {
+    height: 60%;
+    background-color: #cce5ff;
     font-size: 27px;
+}
+footer {
+    height: 10%;
+    background-color: #004085;
+    font-size: 16px;
     text-align: center;
+    vertical-align: middle;
+    color: white;
 }
