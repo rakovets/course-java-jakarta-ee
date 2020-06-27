@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 
 @WebServlet("/artist")
 public class DataValidation extends HttpServlet {
@@ -28,6 +29,11 @@ public class DataValidation extends HttpServlet {
                     1 : (Integer) req.getSession().getAttribute("id") + 1);
             artistDto.setId((Integer) req.getSession().getAttribute("id"));
 
+            ArrayList artistsList = jakarta.el.instanceObject.InstanceObject.getInstanceArtistsList();
+            artistsList.add(artistDto);
+            artistDto.setArtistsList(artistsList);
+
+            req.getSession().setAttribute("listArtistsSession", artistDto.getArtistsList());
             req.getRequestDispatcher("/WEB-INF/jsp/create-artist-success.jsp").forward(req, resp);
         }
     }
