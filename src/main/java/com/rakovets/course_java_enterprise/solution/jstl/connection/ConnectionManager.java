@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 
 public final class ConnectionManager {
-    private static final String DATASOURCE_URL = "jdbc:mysql://localhost:3306/restaurant?serverTimezone=Europe/Moscow";
+    private static final String DATASOURCE_URL = "jdbc:mysql://localhost:3306/heroes?serverTimezone=Europe/Moscow";
     private static final String DATASOURCE_USER = "root";
     private static final String DATASOURCE_PASSWORD = "1234";
     private static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";

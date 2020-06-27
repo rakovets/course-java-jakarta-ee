@@ -7,7 +7,7 @@ header {
 main {
     height: 60%;
     background-color: #cce5ff;
-    font-size: 27px;
+    font-size: 12px;
 }
 footer {
     height: 10%;
@@ -17,3 +17,10 @@ footer {
     vertical-align: middle;
     color: white;
 }
+
+td {
+    padding: 5px 0px 5px 0px;
+    width: 200px;
+}
+
+

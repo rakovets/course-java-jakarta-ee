@@ -16,8 +16,7 @@ public class AbilitiesServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Ability> abilityList = AbilityService.getInstance().getAllAbilities();
-        req.setAttribute("abilities", abilityList);
-        req.setAttribute("jop", "jop start");
+        req.getSession().setAttribute("abilitiesList", abilityList);
         req.getRequestDispatcher("/WEB-INF/jsp/read-abilities.jsp").forward(req, resp);
     }
 }
