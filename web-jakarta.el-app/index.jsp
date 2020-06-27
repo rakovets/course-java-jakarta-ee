@@ -20,5 +20,11 @@
     </h2>
     <p><img src="${pageContext.request.contextPath}/static/images/task03.PNG" alt="task03"></p>
     <br><hr align-items="center"><br>
+
+    <h2>
+        <a href="artist/list">Task 4</a>
+    </h2>
+    <p><img src="${pageContext.request.contextPath}/static/images/task04.PNG" alt="task04"></p>
+    <br><hr align-items="center"><br>
 </body>
 </html>
