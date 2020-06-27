@@ -9,20 +9,20 @@
 <%@include file="/WEB-INF/jsp/common/header.jsp"  %>
 <main>
     <nav class="navbar">
-    <div class="col-4"></div>
-    <div class="col-4">
-        <h3 class="pl-3">Abilities</h3>
-        <c:forEach items="${sessionScope.abilitiesList}" var="ability">
-            <table border="2"  >
-                <tr>
-                    <td class="pl-3">${ability.name}</td>
-                </tr>
-            </table>
-        </c:forEach>
-    </div>
-    <div class="col-4"></div>
+        <div class="col-4"></div>
+        <div class="col-4">
+            <h4 class="p-3">Abilities</h4>
+            <c:forEach items="${sessionScope.abilitiesList}" var="ability">
+                <table border="1" class="border border-primary">
+                    <tr>
+                        <td class="pl-3">${ability.name}</td>
+                    </tr>
+                </table>
+            </c:forEach>
+        </div>
+        <div class="col-4"></div>
     </nav>
 </main>
-<%@include file="/WEB-INF/jsp/common/footer.jsp"  %>
+<%@include file="/WEB-INF/jsp/common/footer.jsp" %>
 </body>
 </html>

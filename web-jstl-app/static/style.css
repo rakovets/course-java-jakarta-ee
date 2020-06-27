@@ -9,6 +9,7 @@ main {
     background-color: #cce5ff;
     font-size: 12px;
 }
+
 footer {
     height: 10%;
     background-color: #004085;
@@ -22,5 +23,3 @@ td {
     padding: 5px 0px 5px 0px;
     width: 200px;
 }
-
-
