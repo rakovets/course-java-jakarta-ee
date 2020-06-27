@@ -16,18 +16,25 @@
       </tr>
       <tr>
           <td>
-              <a href="">${sessionScope.listArtistsSession[0].id}</a>
+              <a href="${pageContext.request.contextPath}/artist/id?artistId=1">
+                  ${sessionScope.listArtistsSession[0].id}</a>
           </td>
           <td>${sessionScope.listArtistsSession[0].name}</td>
           <td>${sessionScope.listArtistsSession[0].russian}</td>
       </tr>
       <tr>
-          <td>${sessionScope.listArtistsSession[1].id}</td>
+          <td>
+              <a href="${pageContext.request.contextPath}/artist/id?artistId=2">
+                  ${sessionScope.listArtistsSession[1].id}</a>
+          </td>
           <td>${sessionScope.listArtistsSession[1].name}</td>
           <td>${sessionScope.listArtistsSession[1].russian}</td>
       </tr>
       <tr>
-          <td>${sessionScope.listArtistsSession[2].id}</td>
+          <td>
+              <a href="${pageContext.request.contextPath}/artist/id?artistId=3">
+                  ${sessionScope.listArtistsSession[2].id}</a>
+          </td>
           <td>${sessionScope.listArtistsSession[2].name}</td>
           <td>${sessionScope.listArtistsSession[2].russian}</td>
       </tr>

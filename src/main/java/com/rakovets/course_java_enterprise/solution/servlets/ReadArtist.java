@@ -11,6 +11,12 @@ import java.io.IOException;
 public class ReadArtist extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/WEB-INF/jsp/read-artist.jsp").forward(req, resp);
+        if(req.getParameter("artistId").equals("1")) {
+            req.getRequestDispatcher("/WEB-INF/jsp/read-artist-id-1.jsp").forward(req, resp);
+        } else if(req.getParameter("artistId").equals("2")) {
+            req.getRequestDispatcher("/WEB-INF/jsp/read-artist-id-2.jsp").forward(req, resp);
+        } else if(req.getParameter("artistId").equals("3")) {
+            req.getRequestDispatcher("/WEB-INF/jsp/read-artist-id-3.jsp").forward(req, resp);
+        }
     }
 }

@@ -16,7 +16,7 @@
     <br><hr align-items="center"><br>
 
     <h2>
-        <a href="artist/id">Task 3</a>
+        <a href="artist/id?artistId=1">Task 3</a>
     </h2>
     <p><img src="${pageContext.request.contextPath}/static/images/task03.PNG" alt="task03"></p>
     <br><hr align-items="center"><br>
