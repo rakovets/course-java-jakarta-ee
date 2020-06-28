@@ -23,3 +23,10 @@ td {
     padding: 5px 0px 5px 0px;
     width: 200px;
 }
+
+input[type="submit"] {
+    display: block;
+    margin-top: 40px;
+    padding: 5px 100px 5px 100px;
+    font-weight: bold;
+}

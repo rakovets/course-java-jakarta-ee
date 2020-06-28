@@ -15,7 +15,9 @@
             </a>
         </div>
         <div class="col-3 text-left pl-5">
-            <h2>Create Heroes</h2>
+            <a href="heroFormsCreateServlet">
+                <h2>Create Heroes</h2>
+            </a>
         </div>
         <div class="col-2"></div>
     </nav>
