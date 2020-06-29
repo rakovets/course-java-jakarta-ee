@@ -6,32 +6,32 @@
 
     <servlet>
         <servlet-name>AbilitiesServlet</servlet-name>
-        <servlet-class>AbilitiesServlet</servlet-class>
+        <servlet-class>com.rakovets.course_java_enterprise.solution.jstl.servlet.AbilitiesServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
         <servlet-name>AbilitiesServlet</servlet-name>
-        <url-pattern>/AbilitiesServlet</url-pattern>
+        <url-pattern>/com.rakovets.course_java_enterprise.solution.jstl.servlet.AbilitiesServlet</url-pattern>
     </servlet-mapping>
 
     <servlet>
         <servlet-name>CreateHeroServlet</servlet-name>
-        <servlet-class>CreateHeroServlet</servlet-class>
+        <servlet-class>com.rakovets.course_java_enterprise.solution.jstl.servlet.CreateHeroServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
         <servlet-name>CreateHeroServlet</servlet-name>
-        <url-pattern>/CreateHeroServlet</url-pattern>
+        <url-pattern>/com.rakovets.course_java_enterprise.solution.jstl.servlet.CreateHeroServlet</url-pattern>
     </servlet-mapping>
 
     <servlet>
         <servlet-name>HeroesServlet</servlet-name>
-        <servlet-class>HeroesServlet</servlet-class>
+        <servlet-class>com.rakovets.course_java_enterprise.solution.jstl.servlet.HeroesServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
         <servlet-name>HeroesServlet</servlet-name>
-        <url-pattern>/HeroesServlet</url-pattern>
+        <url-pattern>/com.rakovets.course_java_enterprise.solution.jstl.servlet.HeroesServlet</url-pattern>
     </servlet-mapping>
 
 

@@ -12,32 +12,23 @@
     <title>Read Info About Heroes Abilities</title>
 </head>
 <body>
-
-<% Enumeration <String> eList = session.getAttributeNames();
-    request.setAttribute("eList", eList);
-
-%>
-
-<%
- //   for (String u : eList.asIterator()) {
-%>
-<tr>
-    <td><%=eList.toString()%></td>
-</tr>
-<%
-  //  }
-%>
-
-<table>
-    <c:forEach items="${abilities}" var="abilities">
-        <tr>
-            <td>AbilitiesServlet abilities: <c:out value="${abilities.toString}"/></td>
-            <td><%=eList.toString()%></td>
-            <td><%=  eList.asIterator()%></td>
-
-        </tr>
-    </c:forEach>
-</table>>
+<%@include file="/WEB-INF/jsp/common/header.jsp" %>
+<main>
+    <nav class="navbar">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <h4 class="p-3">Abilities</h4>
+            <c:forEach items="${sessionScope.abilitiesList}" var="ability">
+                <table border="1" class="border border-primary">
+                    <tr>
+                        <td class="pl-3">${ability.name}</td>
+                    </tr>
+                </table>
+            </c:forEach>
+        </div>
+        <div class="col-4"></div>
+    </nav>
+</main>
 
 </body>
 </html>

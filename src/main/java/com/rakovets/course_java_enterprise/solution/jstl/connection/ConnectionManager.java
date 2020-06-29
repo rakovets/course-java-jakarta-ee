@@ -8,10 +8,10 @@ import java.sql.SQLException;
 
 
 public final class ConnectionManager {
-    private static final String DATASOURCE_URL = "jdbc:mysql://localhost:3306/restaurant?useUnicode=true&serverTimezone=UTC";
+    private static final String DATASOURCE_URL = "jdbc:mysql://localhost:3306/heroes?serverTimezone=Europe/Moscow";
     private static final String DATASOURCE_USER = "root";
     private static final String DATASOURCE_PASSWORD = "root";
-    private static final String JDBC_DRIVER = "org.mysql.jdbc.Driver";
+    private static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
 
     static {
         try {

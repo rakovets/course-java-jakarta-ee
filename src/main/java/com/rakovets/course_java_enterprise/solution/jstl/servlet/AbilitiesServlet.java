@@ -1,5 +1,8 @@
+package com.rakovets.course_java_enterprise.solution.jstl.servlet;
+
 import com.rakovets.course_java_enterprise.solution.jstl.dao.AbilityDao;
 import com.rakovets.course_java_enterprise.solution.jstl.entity.Ability;
+import com.rakovets.course_java_enterprise.solution.jstl.service.AbilityService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,10 +20,9 @@ public class AbilitiesServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        getServletContext().getRequestDispatcher("/read-abilities.jsp").forward(req, resp);
-        List<Ability> abilities = abilityDao.findAll();
-        abilities.add(new Ability(1,"Jpi"));
-        abilities.add(new Ability(2,"Super"));
-        req.setAttribute("abilities", abilities);
+        List<Ability> abilityList = AbilityService.getInstance().getAllAbilities();
+        req.setAttribute("abilities", abilityList);
+        req.setAttribute("jop", "jop start");
+        req.getRequestDispatcher("/WEB-INF/jsp/read-abilities.jsp").forward(req, resp);
     }
 }
