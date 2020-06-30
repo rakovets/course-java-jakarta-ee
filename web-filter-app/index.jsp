@@ -13,7 +13,7 @@
   </head>
   <body>
   <h3>
-    <a href="com.rakovets.course_java_enterprise.solution.servlet.ConsoleServlet">Task 01</a><br><br>
+    <a href="index.jsp">Task 01</a><br><br>
   </h3>
   <h3>
     <a href="">Task 02</a><br><br>
