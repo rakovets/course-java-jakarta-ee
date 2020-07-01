@@ -11,6 +11,6 @@
     <title>Sefe jsp</title>
 </head>
 <body>
-
+safe page
 </body>
 </html>

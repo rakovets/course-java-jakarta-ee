@@ -3,37 +3,4 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
-
-    <!--
-Declaring a filter named logFilter
--->
-    <filter>
-        <filter-name>ConsoleFilter</filter-name>
-        <filter-class>com.rakovets.course_java_enterprise.solution.filter.ConsoleFilter</filter-class>
-    </filter>
-
-    <!--
-      Declare the path (of the page) will have the effect of logFilter
-     /* for all paths
-    -->
-    <filter-mapping>
-        <filter-name>ConsoleFilter</filter-name>
-        <url-pattern>/*</url-pattern>
-    </filter-mapping>
-
-
-    <filter>
-        <filter-name>RederectFilter</filter-name>
-        <filter-class>com.rakovets.course_java_enterprise.solution.filter.RederectFilter</filter-class>
-    </filter>
-
-    <!--
-      Declare the path (of the page) will have the effect of logFilter
-     /* for all paths
-    -->
-    <filter-mapping>
-        <filter-name>RederectFilter</filter-name>
-        <url-pattern>/unsafe</url-pattern>
-    </filter-mapping>
-
 </web-app>

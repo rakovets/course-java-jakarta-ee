@@ -13,13 +13,13 @@
   </head>
   <body>
   <h3>
-    <a href="index.jsp">Task 01</a><br><br>
+    <a href="http://localhost:8080/web_filter_app/index.jsp?Name=Nikita&Surname=Felbs">Task 01</a><br><br>
   </h3>
   <h3>
-    <a href="">Task 02</a><br><br>
+    <a href="http://localhost:8080/web_filter_app/unsafe">Task 02</a><br><br>
   </h3>
   <h3>
-    <a href="">Task 03</a><br><br>
+    <a href="LoginServlet">Task 03</a><br><br>
   </h3>
   <h3>
     <a href="">Task 04</a><br><br>
