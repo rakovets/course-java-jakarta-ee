@@ -4,7 +4,7 @@
     <title>Authentication</title>
 </head>
 <body>
-    <form>
+    <form action="${pageContext.request.contextPath}/authentication">
         <p>
             <b>Логин:</b>
             <input maxlength="25" size="40" name="login" required>

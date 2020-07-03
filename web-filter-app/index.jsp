@@ -8,8 +8,11 @@
     <a href="${pageContext.request.contextPath}/unsafe">
         <h1>Task 02 (redirect)</h1>
     </a>
-    <a href="${pageContext.request.contextPath}/authentication">
+    <a href="${pageContext.request.contextPath}/formAuthentication">
         <h1>Task 03 (login and password)</h1>
+    </a>
+    <a href="${pageContext.request.contextPath}/formAuthentication">
+        <h1>Task 04 (authentication and authorization)</h1>
     </a>
 </body>
 </html>

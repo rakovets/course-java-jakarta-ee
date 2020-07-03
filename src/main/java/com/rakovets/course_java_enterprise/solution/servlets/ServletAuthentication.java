@@ -7,10 +7,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/unsafe")
-public class servletUnsafe extends HttpServlet {
+@WebServlet("/authentication")
+public class ServletAuthentication extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doGet(req, resp);
+        req.getRequestDispatcher("/WEB-INF/jsp/authenticationSuccess.jsp").forward(req, resp);
     }
 }
