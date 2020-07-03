@@ -4,8 +4,13 @@
     <title>Filters</title>
 </head>
 <body>
-    <h4>Task 1</h4>
-    Зарегистрировать filter, выводящий в Console все параметры, приходящие в HTTP Request на любые URI в следующем виде:
-    'Название параметра: значение параметра'
+    <form action="unsafe">
+        <p>
+            Enter parameter  <input type="text" name="name"><br>
+        </p>
+        <p>
+            <input type="submit" value="Request go to URI /unsafe">
+        </p>
+    </form>
 </body>
 </html>
