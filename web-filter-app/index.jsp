@@ -1,16 +1,15 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-    <title>Filters</title>
+    <title>Index</title>
 </head>
 <body>
-    <form action="unsafe">
-        <p>
-            Enter parameter  <input type="text" name="name"><br>
-        </p>
-        <p>
-            <input type="submit" value="Request go to URI /unsafe">
-        </p>
-    </form>
+    <h1>Task 01 (see comment "solution task01")</h1>
+    <a href="${pageContext.request.contextPath}/unsafe">
+        <h1>Task 02 (redirect)</h1>
+    </a>
+    <a href="${pageContext.request.contextPath}/authentication">
+        <h1>Task 03 (login and password)</h1>
+    </a>
 </body>
 </html>
