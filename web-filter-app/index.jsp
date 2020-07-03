@@ -14,5 +14,11 @@
     <a href="${pageContext.request.contextPath}/formAuthentication">
         <h1>Task 04 (authentication and authorization)</h1>
     </a>
+    <a href="${pageContext.request.contextPath}/formAuthentication">
+        <h1>Task 05 (30 seconds authorization session for 'admin')</h1>
+    </a>
+    <a href="${pageContext.request.contextPath}/invalidateSession">
+        <h3>Exit - invalidate session</h3>
+    </a>
 </body>
 </html>

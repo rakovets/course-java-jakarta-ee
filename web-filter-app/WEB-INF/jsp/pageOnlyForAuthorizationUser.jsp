@@ -1,10 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-    <title>Safe</title>
+    <title>Page only for authorization User</title>
 </head>
 <body>
-    <h1>It's safe.jsp</h1>
+    <h1>Admin</h1>
     <form action="${pageContext.request.contextPath}/index.jsp">
         <input type="submit" value="Continue">
     </form>
