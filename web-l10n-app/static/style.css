@@ -1,0 +1,32 @@
+header {
+    color: white;
+    background-color: #004085;
+    font-size: 27px;
+}
+
+main {
+    height: 60%;
+    background-color: #cce5ff;
+    font-size: 12px;
+}
+
+footer {
+    height: 10%;
+    background-color: #004085;
+    font-size: 16px;
+    text-align: center;
+    vertical-align: middle;
+    color: white;
+}
+
+td {
+    padding: 5px 0px 5px 0px;
+    width: 200px;
+}
+
+input[type="submit"] {
+    display: block;
+    margin-top: 40px;
+    padding: 5px 100px 5px 100px;
+    font-weight: bold;
+}
