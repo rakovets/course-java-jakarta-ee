@@ -8,10 +8,10 @@ import java.sql.SQLException;
 
 
 public final class ConnectionManager {
-    private static final String DATASOURCE_URL = "jdbc:mariadb://localhost:3306/heroes?passwordCharacterEncoding=UTF-8";
+    private static final String DATASOURCE_URL = "jdbc:mysql://localhost/heroes?serverTimezone=Europe/Minsk&useSSL=false";
     private static final String DATASOURCE_USER = "root";
-    private static final String DATASOURCE_PASSWORD = "1234";
-    private static final String JDBC_DRIVER = "org.mariadb.jdbc.Driver";
+    private static final String DATASOURCE_PASSWORD = "12340987";
+    private static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
 
     static {
         try {
