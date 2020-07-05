@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
+<%@include file="/WEB-INF/jsp/common/jstl-connect.jsp" %>
 <html>
 <head>
     <title>Start page</title>
@@ -7,19 +8,49 @@
 <body>
 <header>
     <nav class="navbar">
-        <div class="col-2">
+        <div class="col">
             <img class="rounded" src="static/hero.jpg" width="150" height="150" alt="hero.jpg">
         </div>
-        <div class="col-2 text-right ml-3">
-            <h2>Abilities</h2>
+        <div class="col-1">
+            <form action="${pageContext.request.contextPath}/localeChange">
+                <p><input type="submit" name="locale" value="English"></p>
+                <p><input type="submit" name="locale" value="France"></p>
+                <p><input type="submit" name="locale" value="Germany"></p>
+                <input type="submit" name="locale" value="Russian">
+                <input type="hidden" name="referrer" value="/WEB-INF/jsp/authentication/formAuthenticationFailure.jsp">
+            </form>
         </div>
-        <div class="col-2 text-center">
-            <h2>Heroes</h2>
+        <div class="col text-right ml-3">
+            <h2>
+                <c:if test="${sessionScope.abilities == null}">
+                    <c:out value="Abilities"/>
+                </c:if>
+                <c:if test="${sessionScope.abilities != null}">
+                    <c:out value="${sessionScope.abilities}"/>
+                </c:if>
+            </h2>
         </div>
-        <div class="col-3 text-left pl-5">
-            <h2>Create Heroes</h2>
+        <div class="col text-center">
+            <h2>
+                <c:if test="${sessionScope.heroes == null}">
+                    <c:out value="Heroes"/>
+                </c:if>
+                <c:if test="${sessionScope.heroes != null}">
+                    <c:out value="${sessionScope.heroes}"/>
+                </c:if>
+            </h2>
         </div>
-        <div class="col-2"></div>
+        <div class="col text-left pl-5">
+            <h2>
+                <c:if test="${sessionScope.create == null}">
+                    <c:out value="Create heroes"/>
+                </c:if>
+                <c:if test="${sessionScope.create != null}">
+                    <c:out value="${sessionScope.create}"/>
+                </c:if>
+            </h2>
+        </div>
+        <div class="col"></div>
     </nav>
 </header>
 <main>

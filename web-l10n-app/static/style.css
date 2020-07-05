@@ -24,9 +24,35 @@ td {
     width: 200px;
 }
 
-input[type="submit"] {
+input[value="Сохранить"],
+[value="Enter"],
+[value="Sign out"] {
     display: block;
     margin-top: 40px;
-    padding: 5px 100px 5px 100px;
+    padding: 5px 80px 5px 80px;
     font-weight: bold;
+}
+
+input[value="English"],
+[value="France"],
+[value="Germany"],
+[value="Russian"] {
+    margin: 0px;
+    padding: 0px;
+    font-size: 15px;
+    width: 130px;
+    font-weight: bold;
+}
+
+input[value="English"] {
+    margin-top: 20px;
+    margin-bottom: -10px;
+}
+
+input[value="Germany"] {
+    margin-top: -10px;
+}
+
+input[value="Russian"] {
+    margin-top: -10px;
 }

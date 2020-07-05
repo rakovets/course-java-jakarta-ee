@@ -6,7 +6,22 @@
     <%@include file="/WEB-INF/jsp/common/css-connect.jsp"  %>
 </head>
 <body>
-<%@include file="/WEB-INF/jsp/common/header.jsp"  %>
+<header>
+    <nav class="navbar">
+        <div class="col">
+            <img class="rounded" src="static/hero.jpg" width="150" height="150" alt="hero.jpg">
+        </div>
+        <div class="col-1">
+            <form action="${pageContext.request.contextPath}/localeChange">
+                <p><input type="submit" name="locale" value="English"></p>
+                <p><input type="submit" name="locale" value="France"></p>
+                <p><input type="submit" name="locale" value="Germany"></p>
+                <input type="submit" name="locale" value="Russian">
+                <input type="hidden" name="referrer" value="/WEB-INF/jsp/create-hero.jsp">
+            </form>
+        </div>
+    <%@include file="/WEB-INF/jsp/common/header.jsp"  %>
+</header>
 <main>
     <form action="${pageContext.request.contextPath}/heroCreateServlet">
         <div class="row">
@@ -14,19 +29,19 @@
                 <table class="font-weight-bold pl-3 ml-3">
                     <p>
                         <tr>
-                            <td>Псевдоним</td>
+                            <td class="text-center">Псевдоним</td>
                             <td><input type="text" name="name" required></td>
                         </tr>
                     </p>
                     <p>
                         <tr>
-                            <td>Реальное имя</td>
+                            <td class="text-center">Реальное имя</td>
                             <td><input type="text" name="identity" required></td>
                         </tr>
                     </p>
                     <p>
                         <tr>
-                            <td>Возраст</td>
+                            <td class="text-center">Возраст</td>
                             <td><input type="number" min="1" name="age" required></td>
                         </tr>
                     </p>
@@ -53,9 +68,9 @@
         </div>
         <div class="row">
             <div class="col"></div>
-                <div class="col-6 font-weight-bold">
+                <div class="col-6">
                     <h6>
-                        <input class="w-75 font-weight-bold" type="submit" value="Сохранить">
+                        <input class="w-50 font-weight-bold" type="submit" value="Сохранить">
                     </h6>
                 </div>
             <div class="col"></div>
