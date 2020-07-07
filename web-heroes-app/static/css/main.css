@@ -1,0 +1,35 @@
+header {
+    padding-top: 30px;
+    background: #005cbf;
+    color: white;
+}
+
+ul, li {
+    display: block;
+    padding: 0;
+    margin: 0;
+}
+
+.menu {
+    margin-bottom: 50px;
+    margin-top: 10px;
+}
+
+.menu__item {
+    list-style-type: none;
+    margin: 0 50px;
+}
+
+.menu__item a {
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+}
+
+.logo {
+    width: 50px;
+}
+
+.ul__hero {
+    margin-top: 50px;
+}
