@@ -1,3 +1,7 @@
+body {
+    font-family: "Calibri Light";
+}
+
 header {
     padding-top: 30px;
     background: #005cbf;
@@ -35,5 +39,39 @@ ul, li {
 }
 
 .main__info {
-    margin-top: 300px;
+    margin-top: 30px;
+}
+
+.form__input {
+    background: white;
+    font-size: 17px;
+    border-radius: 5px;
+    width: 700px;
+    padding: 10px 0;
+    padding-left: 20px;
+    border-color: #eff0f3;
+    outline: none;
+}
+
+.form__btn {
+    background: #0ae030;
+    color: black;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 5px;
+    width: 150px;
+    padding: 10px 0;
+    border: none;
+}
+
+.select {
+    background: white;
+    font-size: 17px;
+    border-radius: 5px;
+    width: 700px;
+    padding: 10px 0;
+    padding-left: 20px;
+    border-color: #818384;
+    outline: none;
 }

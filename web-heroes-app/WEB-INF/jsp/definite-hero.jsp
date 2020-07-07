@@ -36,7 +36,7 @@
                             </a>
                         </li>
                         <li class="menu__item">
-                            <a href="">
+                            <a href="create-hero">
                                 Create Hero
                             </a>
                         </li>
