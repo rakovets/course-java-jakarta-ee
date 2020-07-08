@@ -4,13 +4,11 @@ import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import java.io.IOException;
 
-@WebFilter("*")
-public class requestFilter implements Filter {
+@WebFilter(servletNames = "UnsafeServlet", urlPatterns = {"/unsafe"})
+public class SafeFilter implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        String ipAddress = servletRequest.getRemoteAddr();
-        String serverName = servletRequest.getServerName();
-
-        System.out.printf("REQUEST....\n%s\n%s", ipAddress, serverName);
+        String path = "/WEB-INF/jsp/safe.jsp";
+        servletRequest.getRequestDispatcher(path).forward(servletRequest, servletResponse);
     }
 }
