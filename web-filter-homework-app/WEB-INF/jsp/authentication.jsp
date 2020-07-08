@@ -11,11 +11,12 @@
     <title>Authentication</title>
 </head>
 <body>
-<form action="">
-    <p>Name</p><br><br>
+<form action="authentication">
+    <p>Name</p>
     <input type="text" name="name"><br>
-    <p>Password</p><br><br>
-    <input type="password" name="password">
+    <p>Password</p>
+    <input type="password" name="password"><br><br>
+    <input type="submit" value="SEND">
 </form>
 </body>
 </html>
