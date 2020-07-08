@@ -12,8 +12,10 @@ public class AuthenticationFilter implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         String pathSuccess = "/WEB-INF/jsp/authentication-admin.jsp";
-        String pathNotSuccess = "/WEB-INF/jsp/authentication-user.jsp";
-        if (servletRequest.getParameter("name").equals(name) && servletRequest.getParameter("password").equals(password)) {
+        String pathNotSuccess = "/WEB-INF/jsp/authentication.jsp";
+        if (!servletRequest.getParameter("name").isEmpty() && !servletRequest.getParameter("password").isEmpty() &&
+                servletRequest.getParameter("name").equals(name) &&
+                servletRequest.getParameter("password").equals(password)) {
             servletRequest.getRequestDispatcher(pathSuccess).forward(servletRequest, servletResponse);
         } else {
             servletRequest.getRequestDispatcher(pathNotSuccess).forward(servletRequest, servletResponse);
