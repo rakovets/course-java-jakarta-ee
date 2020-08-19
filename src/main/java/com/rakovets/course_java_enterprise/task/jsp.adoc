@@ -1,0 +1,38 @@
+== Task 1
+
+Создать JSP-страницу `hello.jsp`. Задать `color` для `body`: `red`. Перейти на неё по прямой ссылке.
+
+== Task 2
+
+Создать JSP-страницу `hello.jsp` в директории `/WEB-INF/jsp`. Задать `color` для `body`: `blue`. Написать servlet
+'HelloServlet`, перенаправляющий *HTTP Request* (method *GET*, URI `/hello`) клиента на эту jsp-страницу `hello.jsp`.
+
+== Task 3
+
+Создать 3 jsp-страницы в директории `/WEB-INF/jsp`:
+
+* `header.jsp`
+* `main.jsp`
+* `footer.jsp`
+
+Эти jsp-страницы содержат соответственно *header*, *main*, *footer* страницы.
+
+Для страниц `header.jsp`, `footer.jsp` задать `background-color` `darkgray`. Сделать так, что бы главные элементы
+занимали всю ширину страницы и имели высоту относительно шрифта.
+
+== Task 4
+
+Используя директиву `include` вернуть агрегированную страницу, где страницы `header.jsp` и `footer.jsp` добавлены в
+страницу `main.jsp` соответственно перед и после основного содержимого.
+
+== Task 5
+
+Вынести все стили в отдельный css-файл и применит его для jsp-страницы.
+
+== Task 6
+
+* Создать JSP-страницу `data-forward.jsp` в директории `/WEB-INF/jsp`.
+* Написать servlet `DataForwardServlet`, перенаправляющий *HTTP Request* (method *GET*, URI `/data-forward`) клиента с
+параметрами `firstName` и `lastName` на jsp-страницу `data-forward.jsp`.
+* Servlet дополнительно должен добавить `role` для данного `User`.
+* На jsp-странице выводится вся информация о пользователе.
