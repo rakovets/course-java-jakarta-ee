@@ -1,3 +1,6 @@
+# Java
+*.class
+
 # IntelliJ IDEA
 .idea/
 out/
@@ -5,3 +8,6 @@ out/
 
 # Apache Maven
 target/
+
+# Jakarta EE
+*.war
