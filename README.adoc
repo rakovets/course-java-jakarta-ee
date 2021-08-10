@@ -1,5 +1,19 @@
 = course-java-enterprise
 
+== Modules
+
+Each module is a web application (usually with a `jakarta.servlet`).
+
+* `01-web-static-app`
+* `02-web-dynamic-app`
+* `02-web-dynamic-modern-app`
+* `03-web-servlet-app`
+* `04-web-jsp-app`
+* `05-web-el-app`
+* `06-web-jstl-app`
+* `07-web-filter-app`
+* `08-web-l10n-app`
+
 == Code of Conduct
 
 This project is governed by the link:.github/CODE_OF_CONDUCT.adoc[Code of Conduct].
