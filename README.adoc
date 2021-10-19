@@ -1,5 +1,12 @@
 = course-java-enterprise
 
+== Tools
+
+* *Java* `11`
+* *Jakarta EE* `8`
+* *Apache Tomcat* `9`
+* *Apache Maven* `latest`
+
 == Modules
 
 Each module is a web application (usually with a `jakarta.servlet`).
@@ -13,6 +20,15 @@ Each module is a web application (usually with a `jakarta.servlet`).
 * `06-web-jstl-app`
 * `07-web-filter-app`
 * `08-web-l10n-app`
+
+== Tasks
+
+* link:03-web-servlet-app/src/main/resources/servlet.adoc[Servlet API]
+* link:04-web-jsp-app/src/main/resources/jsp.adoc[JSP]
+* link:05-web-el-app/src/main/resources/el.adoc[EL]
+* link:06-web-jstl-app/src/main/resources/jstl.adoc[JSTL]
+* link:07-web-filter-app/src/main/resources/filter.adoc[Filter]
+* link:08-web-l10n-app/src/main/resources/i18n.adoc[i18n]
 
 == Code of Conduct
 
