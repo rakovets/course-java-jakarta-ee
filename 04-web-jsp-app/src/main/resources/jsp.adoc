@@ -6,8 +6,7 @@
 
 == Task 2
 
-Создать JSP-страницу `hello.jsp` в директории `/WEB-INF/jsp`. Задать `color` для `body`: `blue`. Написать servlet
-'HelloServlet`, перенаправляющий *HTTP Request* (method *GET*, URI `/hello`) клиента на эту jsp-страницу `hello.jsp`.
+Создать JSP-страницу `hello.jsp` в директории `/WEB-INF/jsp`. Задать `color` для `body`: `blue`. Написать servlet 'HelloServlet`, перенаправляющий *HTTP Request* (method *GET*, URI `/hello`) клиента на эту jsp-страницу `hello.jsp`.
 
 == Task 3
 
@@ -19,22 +18,24 @@
 
 Эти jsp-страницы содержат соответственно *header*, *main*, *footer* страницы.
 
-Для страниц `header.jsp`, `footer.jsp` задать `background-color` `darkgray`. Сделать так, что бы главные элементы
-занимали всю ширину страницы и имели высоту относительно шрифта.
+Для страниц `header.jsp`, `footer.jsp` задать `background-color` `darkgray`. Сделать так, что бы главные элементы занимали всю ширину страницы и имели высоту относительно шрифта.
 
 == Task 4
 
-Используя директиву `include` вернуть агрегированную страницу, где страницы `header.jsp` и `footer.jsp` добавлены в
-страницу `main.jsp` соответственно перед и после основного содержимого.
+Используя директиву `include` вернуть агрегированную страницу, где страницы `header.jsp` и `footer.jsp` добавлены в страницу `main.jsp` соответственно перед и после основного содержимого.
 
 == Task 5
 
-Вынести все стили в отдельный css-файл и применит его для jsp-страницы.
+Вынести все стили в отдельный css-файл и применить его к jsp-страницам.
 
 == Task 6
 
+* Добавить в приложение model `User`, которая имеет следующие поля:
+** `firstName`
+** `lastName`
+** `role`
 * Создать JSP-страницу `data-forward.jsp` в директории `/WEB-INF/jsp`.
-* Написать servlet `DataForwardServlet`, перенаправляющий *HTTP Request* (method *GET*, URI `/data-forward`) клиента с
+* Написать servlet `DataForwardServlet`, перенаправляющий *HTTP Request* `GET /data-forward` с
 параметрами `firstName` и `lastName` на jsp-страницу `data-forward.jsp`.
-* Servlet дополнительно должен добавить `role` для данного `User`.
-* На jsp-странице выводится вся информация о пользователе.
+* Servlet `DataForwardServlet` дополнительно должен добавить `role` `USER` для данного пользователя.
+* На jsp-странице выводится вся информация о пользователе, т.е. `firstName`, `lastName` и `role`.
