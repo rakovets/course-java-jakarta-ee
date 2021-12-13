@@ -1,0 +1,23 @@
+= Web static app
+
+* Создать web-application 'Curriculum vitae' (Резюме, CV), которое представляет собой статическую web-страницу. Данная страница содержит информацию о Вас как о специалисте, т.е. резюме.
+** Example: https://rakovets.by/
+
+== Specification of task 1
+
+* С помощью Apache Maven создать web-application. Для этого используйте archetype: `maven-archetype-webapp`.
+* Проверить что проект "собирается".
+
+== Specification of task 2
+
+* Разработайте страницу, которая представляет собой резюме.
+
+== Specification of task 3
+
+* Осуществить *deploy* (*развертывание*) на local env.
+* Проверить доступность приложения в localhost.
+
+== Specification of task 4
+
+* Осуществить *deploy* (*развертывание*) на сервере.
+* Проверить доступность приложения в сети Internet.
