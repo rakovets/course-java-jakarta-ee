@@ -1,0 +1,68 @@
+= Servlet
+
+В приведенных задача будет использоваться хранилище данных. Первоначально, хранилище данных, содержит минимум 5 различных сущностей модели `User`. Как будет реализованно хранилище, выходит за рамки этих задач. Это может быть inmemory, file system, database.
+
+.Model `User`
+[source,java]
+----
+public class User {
+    private Long id;
+    private String firstName;
+    private String lastName;
+    private String email;
+    private String username;
+    private Sttring password;
+
+    // ...
+}
+----
+
+== Specification of task 1
+
+* Реализовать *Servlet* с url pattern `/view/users/${id}` и обрабатывающим *HTTP Request* c *method GET*.
+* Формируется HTML-страница, которая содержит всю информацию о пользователе кроме пароля.
+* HTML-страница возвращается в *Response Body*.
+
+== Specification of task 2
+
+* Реализовать *Servlet* с url pattern `/view/command/create-user` и обрабатывающим *HTTP Request* c *method GET*.
+* Формируется HTML-страница, которая содержит форму для создания пользователя.
+* HTML-страница возвращается в *Response Body*.
+
+== Specification of task 3
+
+* Реализовать *Servlet* с url pattern `/api/users` и обрабатывающим *HTTP Request* c *method POST*.
+* Информация из *HTTP Request* извлекается и сохраняется в хранилище.
+* Формируется HTML-страница, которая содержит всю информацию о пользователе кроме пароля.
+* HTML-страница возвращается в *Response Body*.
+
+== Specification of task 4
+
+* Реализовать *Servlet* с url pattern `/view/users` и обрабатывающим *HTTP Request* c *method GET*.
+* *Servlet* принимает следующие *query parameters*:
+** `page` - страница
+** `pageSize` - размер страницы
+* Формируется HTML-страница, которая содержит информацию о пользователях кроме пароля в виде таблицы.
+* `id` пользователя на HTML-странице, является ссылкой на `/view/users/${id}`.
+* HTML-страница возвращается в *Response Body*.
+
+== Specification of task 5
+
+* Реализовать *Servlet* с url pattern `/view/command/update-user` и обрабатывающим *HTTP Request* c *method GET*.
+* Формируется HTML-страница, которая содержит форму для обновления пользователя.
+* HTML-страница возвращается в *Response Body*.
+
+== Specification of task 6
+
+* Реализовать *Servlet* с url pattern `/api/users/${id}` и обрабатывающим *HTTP Request* c *method PUT*.
+* Информация из *HTTP Request* извлекается и обновляется в хранилище.
+* Формируется HTML-страница, которая содержит всю информацию о пользователе кроме пароля.
+* HTML-страница возвращается в *Response Body*.
+
+== Specification of task 7
+
+* Реализовать *Servlet* с url pattern `/api/users/${id}` и обрабатывающим *HTTP Request* c *method DELETE*.
+* Пользователь удаляется из хранилища.
+* Формируется HTML-страница, которая содержит информацию о пользователях кроме пароля в виде таблицы.
+* `id` пользователя на HTML-странице, является ссылкой на `/view/users/${id}`.
+* HTML-страница возвращается в *Response Body*.
