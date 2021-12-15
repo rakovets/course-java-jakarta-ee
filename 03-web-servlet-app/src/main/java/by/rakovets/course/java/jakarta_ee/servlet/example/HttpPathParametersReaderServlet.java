@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 
-@WebServlet("/api/users/*")
+@WebServlet("/example/reader/path/*")
 public class HttpPathParametersReaderServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
